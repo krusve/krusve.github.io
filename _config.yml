@@ -26,7 +26,7 @@ title: krusve                         # the main title
 tagline: Cyber Security enthusiast diving into the world of everything IT.   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
+  Cyber Security enthusiast diving into the world of everything IT. My blog regarding everything IT.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: ''
@@ -35,7 +35,7 @@ github:
   username: krusve             # change to your github username
 
 # twitter:
-  username: twitter_username            # change to your twitter username
+ # username: twitter_username            # change to your twitter username
 
 social:
   # Change to your full name.
