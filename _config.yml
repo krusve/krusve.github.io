@@ -34,8 +34,8 @@ url: ''
 github:
   username: krusve             # change to your github username
 
-# twitter:
- # username: twitter_username            # change to your twitter username
+twitter:
+  username: krusve1            # change to your twitter username
 
 social:
   # Change to your full name.
@@ -44,7 +44,7 @@ social:
   email: krusve@outlook.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    # - https://twitter.com/username      # change to your twitter homepage
+    - https://twitter.com/krusve1      # change to your twitter homepage
     - https://github.com/krusve       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
@@ -56,7 +56,7 @@ google_site_verification:               # fill in to your verification string
 # The end of `jekyll-seo-tag` settings
 
 google_analytics:
-  id:                 # fill in your Google Analytics ID
+  id: 'G-Y08FJ6RSGS'                # fill in your Google Analytics ID
   # Google Analytics pageviews report settings
   pv:
     proxy_endpoint:   # fill in the Google Analytics superProxy endpoint of Google App Engine
