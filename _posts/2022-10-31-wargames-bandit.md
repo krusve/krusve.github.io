@@ -79,9 +79,9 @@ bandit3@bandit:~$ cd inhere
 bandit3@bandit:~/inhere$ ls 
 bandit3@bandit:~/inhere$ ls -la 
 total 12 
-drwxr-xr-x 2 root root 4096 sep 1 06:30 .
-drwxr-xr-x 3 root root 4096 sep 1 06:30 ..
--rw-r 1 bandit4 bandit3  33 sep 1 06:30 .hidden
+drwxr-xr-x 2 root    root   4096 sep 1 06:30 .
+drwxr-xr-x 3 root    root   4096 sep 1 06:30 ..
+-rw-r----- 1 bandit4 bandit3  33 sep 1 06:30 .hidden
 bandit3@bandit:~/inhere$ cat .hidden 
 2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe 
 ```
