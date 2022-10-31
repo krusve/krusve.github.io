@@ -9,7 +9,7 @@ tags: [bandit, linux, overthewire, wargames, commandline]     # TAG names should
 My Write-up of the infamous [Bandit](https://overthewire.org/wargames/bandit/) challenges, that "can help you to learn and practice security concepts in the form of fun-filled games."
 
 # General
-
+<hr>
 To connect the following command is used:
 ```bash
 $ ssh bandit<level>@bandit.labs.overthewire.org -p 2220
