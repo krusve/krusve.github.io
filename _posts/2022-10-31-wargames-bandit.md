@@ -19,6 +19,8 @@ $ ssh bandit<level>@bandit.labs.overthewire.org -p 2220
 ```
 Then you will be asked to give the passwords, which you will find within each level.
 
+Complex commands will be explained for each level, while the general commands can be found in a table at the end of the write-up.
+
 ## Level 0
 
 <hr>
@@ -48,6 +50,8 @@ bandit1@bandit:~$ ls
 bandit1@bandit:~$ cat ./-
 rRGizSaX8Mk1RTb1CNQoXTcYZWU61gzi 
 ```
+
+
 
 ## Level 2
 
@@ -101,12 +105,19 @@ bandit4@bandit:~$ cd inhere
 bandit4@bandit:~/inhere$ ls 
 -file00 -file01 -file02 -file03 -file04 -file05 -file06 -file07 -file08 -file09 
 bandit4@bandit:~/inhere$ cd ..
-bandit4@bandit:~$ find ./inhere -type f -exec file { } + I grep ASCII 
+bandit4@bandit:~$ find ./inhere -type f -exec file { } + | grep ASCII 
 ./inhere/-file07: ASCII text 
 bandit4@bandit:~$ cat ./inhere/-file07 
 Ir1WW16bB37kxfiCQZqUd01Yfr6eEeqR 
 
 ```
+- find ./inhere -type f -exec file { } + I grep ASCII
+  * "find" is used to search for files or directories
+  * "./inhere": the directory to search in
+  * "-type f": filetype to look for is regular file
+  * "-exec file {}": execute command "file" (identify file type) and append file name at end
+  * "grep ASCII": print lines that match patterns
+
 
 ## Level 5
 
@@ -131,6 +142,15 @@ bandit5@bandit:~$ find ./inhere -type f ! -executable -size 1033c -exec file { }
 bandit5@bandit:~$ cat ./inhere/maybehere07/.file2 
 P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU 
 ```
+
+- find ./inhere -type f -exec file { } + I grep ASCII
+  * "find" is used to search for files or directories
+  * "./inhere": the directory to search in
+  * "-type f": filetype to look for is regular file
+  * "! -executable": file is NOT (due to the "!") executable
+  * "-size 1033c": size of file is 1033 bytes
+  * "-exec file {}": execute command "file" (identify file type) and append file name at end
+  * "grep ASCII": print lines that match patterns
 
 ## Level 6
 
@@ -162,6 +182,14 @@ bandit6@bandit:/$ find ./ -user bandit7 -group bandit6 -size 33c 2>/dev/null
 bandit6@bandit:/$ cat ./var/lib/dpkg/info/bandit7.password 
 z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S 
 ```
+
+- find ./inhere -type f -exec file { } + I grep ASCII
+  * "find" is used to search for files or directories
+  * "./": the directory to search in
+  * "-user bandit7": file belongs to bandit7
+  * "-group bandit6": file belongs to group bandit6
+  * "-size 33c": filesize is 33 bytes
+  * "2>/dev/null": ignore output errors 
 
 ## Level 7
 
@@ -224,3 +252,25 @@ data.txt
 bandit10@bandit:~$ base64 -d data.txt 
 The password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM 
 ```
+
+
+## All commands and their description
+<hr>
+
+Use [man](https://man7.org/linux/man-pages/index.html) pages to find explanations and usage information.
+
+| Command | Description |
+|---------|-------------|
+|   ls      |     list directory contents       |
+|   cat     |   concatenate files and print on the standard output   |
+| cd | change directory   |
+| find | search for files in a directory hierarchy  |
+| \| | linux pipe, used to direct ouput from a command into another process or command  |
+| grep | print lines that match patterns  |
+| sort | sort lines of text files  |
+| uniq | report or omit repeated lines  |
+| strings | print the sequences of printable characters in files  |
+| base64 | base64 encode/decode data and print to standard output  |
+
+
+
