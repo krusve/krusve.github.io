@@ -103,7 +103,6 @@ bandit12@bandit:/tmp/kruse3110$ ls
 bzip_1 data.txt gzip_1 hexdump_1 hexdump_init
 bandit12@bandit:/tmp/kruse3110$ xxd bzip_1
 00000000: 1f8b 0808 0650 b45e 0203 6461 7461 322e  .....qQ.c..data2.
-bandit12@bandit:/tmp/kruse3110$
 ```
 We identify the file signature yet again as gzip (1f8b)
 
@@ -148,7 +147,9 @@ We received data6.bin from the extraction and see that its again a bzip2 file (4
 ### Extract bzip2
 ```bash
 bandit12@bandit:/tmp/kruse3110$ bzip2 -d data6.bin
-bzip2: Can't guess original name for data6.bin -- using data6.bin.out
+bzip2: Can´t guess original name for data6.bin -- using data6.bin.out
+```
+```bash
 bandit12@bandit:/tmp/kruse3110$ ls
 bzip_1 compressed3.tar data5.bin data6.bin.out data.txt gzip_1 gzip_2 hexdump_1 hexdump_init
 bandit12@bandit:/tmp/kruse3110$ head data6.bin.out
@@ -231,81 +232,245 @@ scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .
 
 - Username: bandit14 <br>
 - Password: ssh key file  <br>
-- Task: 
+- Task: The password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.
 
 ```bash
-
+krussve@kali:~$ chmod 700 sskey.private
+krussve@kali:~$ ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
+bandit14@bandit:~$ cat /etc/bandit_pass/bandit14 
+fGrHPx402xGC7U7rXKDaxiWFTOiFOENq 
+```
+Now we have the password for the current level, but need to provide this to port 30000 on localhost. We use nc which is a networking tool that, among others, allows us to send the password to open a connection to the port and then enter the password:
+```bash
+bandit14@bandit:~$ nc localhost 30000 
+fGrHPx402xGC7U7rXKDaxiWFTOiFOENq 
+Correct ! 
+jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt 
 ```
 
-## Level 11
+## Level 15
 
 <hr>
 
-- Username: bandit <br>
-- Password: bandit <br>
-- Task: 
+- Username: bandit15 <br>
+- Password: jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt <br>
+- Task: The password for the next level can be retrieved by submitting the password of the current level to port 30001 on localhost using SSL encryption.
+  * Helpful note: Getting “HEARTBEATING” and “Read R BLOCK”? Use -ign_eof and read the “CONNECTED COMMANDS” section in the manpage. Next to ‘R’ and ‘Q’, the ‘B’ command also works in this version of that command…
+
 
 ```bash
-
+bandit15@bandit:~$ openssl s_client -ign_eof -connect localhost:30001 
+CONNECTED(00000003) 
+Can´t use SSL get_servername 
+depth=0 CN = localhost 
+verify error:num=18:self-signed certificate 
+verify return:1
+...
+jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt 
+Correct ! 
+JQttfApK4SeyHwD119SXGR50qc10Ai11 
 ```
 
-## Level 11
+
+## Level 16
 
 <hr>
 
-- Username: bandit <br>
-- Password: bandit <br>
-- Task: 
+- Username: bandit16 <br>
+- Password: JQttfApK4SeyHwD119SXGR50qc10Ai11 <br>
+- Task: The credentials for the next level can be retrieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.
+  * From previous task: "Helpful note: Getting “HEARTBEATING” and “Read R BLOCK”? Use -ign_eof and read the “CONNECTED COMMANDS” section in the manpage. Next to ‘R’ and ‘Q’, the ‘B’ command also works in this version of that command…"
+  
+Make a port scan for ports 31000-32000 on the localhost:
 
 ```bash
-
+bandit16@bandit:~$ nmap -A -p31000-32000 localhost 
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-11-02 18:27 UTC 
+Nmap scan report for localhost (127.0.0.1) 
+Host is up (0.00011s latency). 
+Not shown: 996 closed ports 
+PORT       STATE SERVICE VERSION 
+31046/tcp  open  echo 
+31518/tcp  open  ssl/echo 
+PORT 
+STATE     SERVICE VERSION 
+31046/tcp open    echo 
+31518/tcp open    ssl/echo 
+| ssl-cert: Subject: commonName=localhost 
+| Subject Alternative Name: DNS:localhost 
+| Not valid before: 2022-11-01T21:06:02 
+|_Not valid after: 2022-11-01T21:07:02 
+31691/tcp open    echo 
+31790/tcp open    ssl/unknown 
+| fingerprint-strings: 
+|   FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, Kerberos, LDAPSearchReq, LPDString, RTSPRequest, SIPOptions, SSLSessionReq, TLSSessionReq, TerminalServerCookie: 
+|_  Wrong! Please enter the correct current password 
+| ssl-cert: Subject: commonName=localhost 
+| Subject Alternative Name: DNS:localhost 
+| Not valid before: 2022-11-02T11:49:21 
+|_Not valid after: 2022-11-02T11 : 50:21 
+31960/tcp open    echo 
+...
 ```
 
-## Level 11
+Only possible port seems to be 31790 so we try to connect
+- need to use -ign_eof
+```bash
+bandit16@bandit:~$ openssl s_client -ign_eof localhost:31790 
+CONNECTED(00000003) 
+...
+read R BLOCK 
+JQttfApK4SeyHwD119SXGR50qc10Ai11 
+Correct ! 
+————BEGIN RSA PRIVATE KEY—————
+M11Eog1BAAKCAQEAvmOkuifmMg6HL2YPIOjon6iWfbp7c3jx34YkYWqUH57SUdyJ 
+imZzeyæøgtZPGujUSxiJSW1/oTqexh+cAMTSMIOJf7+BrJObArnxd9Y7YT2bRPQ 
+Ja6Lzb558YW3FZ1870RiO+rW4LCDCNd21UvLE/GL2GWyuKNOK5iCd5TbtJzEkQTu 
+DSt2mcNn4rhAL+JFr5604T6z8WWAW18BR6yGrMq7Q/kALHYW30ekePQAzLOVUYbW 
+JGTi65CxbCnzc/w4+mqQyvmzpWtMAzJTzAzQxNbkR2MBGySxDLrjgOLWN6sK7wNX 
+xOYVztz/zb1kPjfkU1jHS+9EbVNj+DIXFOJuaQIDAQABA01BABagpxpM1aoLWfvD 
+KHcj10nqcoBc40E11aFYQwik7xfW+24pRNuDE6SFthOar69jp5RILwDINhPx3iB1 
+J9nOM80JOVToum43UOS8YxF8WwhXriYGnc1sskbwpXOUDc9uX4+UESzH22P290vd 
+d8WEryøgPxun8pbJLmxkAtWNhpMvfe0050vk9TL5wqbu9A1bssgTcCXkMQnPw9nC 
+YNN6DDP21bcBrvgT9YCNL6C+ZKufD52yOQ9qOkwFTEQpjtF4uNtJom+asv1pmS8A 
+vLY9r60wYSvmZhNqBUrj71yCtXM1u1kkd4w7F77k+DjHoAXyxcUp1DGL51sOmama 
++TovwgEcgYEA8JtPxPOGRJ+1QkX262jM3dE1kza8ky5m01wUqYdsxONxH$RhORT 
+8c8hAuRBb2G82s08vUHk/fur850Efc9TncnCY2crpoqsghifKLxrLgtT+qDpfZnx 
+SatLdt8GfQ85yA7hnWWJ2MxF3NaeSDm75Lsm+tBbAiyc9P2jGRNtMSkCgYEAypHd 
+HCctNi/Fwju1httFx/rHYKhLidZDFYeiE/v45bN4yFm8x7R/bOiE7KaszX+Exdvt 
+SghaTdcGOKnyw1bpJVyusavPzpaJMjdJ6tcFhVAbAjm7enCIvGCSx+X315SiWg0A 
+R57hJg1ez1iVjv3aGwHwv1ZvtszK6zV60XFAuOEcgYAbj046T4hyP5tJi93V5HDi 
+Ttiek7xRVxU1+iU7rWkGAXFpMLFteQEsRr7PJ/1emmEY5eTDAFMLy9FL2m90QWCg 
+R8VdwSk8r9FGLS+9aKcV5P1/WEK1wgXinB30hYimtiG2cg5JCq1ZFHxD6MjEGOiu 
+L8ktHMPvodBwNsSBULpGOQKBgBAp1TfCIHOnWiMGOU3KPw',mt006CdTkmJOmL8Ni 
+blh9e1yZ9FsGxsgtRBXRsqXuz7wtsQAgLHxbdLq/ZJQ7YfzOKU4ZxEnabvXnvWkU 
+YOdjHdSOoKvDQNWu6ucyLRAWFu1SeXw9a/9p7ftpxmOTsgyvmfLF2MIAEwyzRqaM 
+77pBAoGAMmjmIJdjp+Ez8duyn3ie036yrttF5NSsJLAbxFpdlc1gvtGCH+9Cq0b 
+dxviW8+TFVEB1104f7HVm6EpTscdDxU+bCXWkfjuRb7Dy9GOtt9JPsX8MBTakzh3 
+vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52061geuZ/ujbjY= 
+————END RSA PRIVATE KEY————— 
+```
+
+## Level 17
 
 <hr>
 
-- Username: bandit <br>
-- Password: bandit <br>
-- Task: 
+- Username: bandit17 <br>
+- Password: ssh key <br>
+- Task: There are 2 files in the homedirectory: passwords.old and passwords.new. The password for the next level is in passwords.new and is the only line that has been changed between passwords.old and passwords.new
+  * NOTE: if you have solved this level and see ‘Byebye!’ when trying to log into bandit18, this is related to the next level, bandit19
 
 ```bash
-
+krussve@kali:~$ chmod 700 sskey.private
+krussve@kali:~$ ssh -i sshkey.private bandit17@bandit.labs.overthewire.org -p 2220
 ```
 
-## Level 11
+compare the two files, then check if the data is in the new file.
+```bash
+bandit17@bandit:~$ ls 
+passwords.new passwords.old 
+bandit17@bandit:~$ diff passwords.new passwords.old 
+42c42 
+< hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg 
+> 09wU1yMU4YhOz11LzxozOv01BzZ2TUAf 
+bandit17@bandit:~$ cat passwords.new | grep hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg 
+hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
+```
+
+## Level 18
 
 <hr>
 
-- Username: bandit <br>
-- Password: bandit <br>
-- Task: 
+- Username: bandit18 <br>
+- Password: hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg <br>
+- Task: The password for the next level is stored in a file readme in the homedirectory. Unfortunately, someone has modified .bashrc to log you out when you log in with SSH.
 
+Trying to login, but get:
 ```bash
-
+krussve@kali:~$ ssh bandit18@bandit.labs.overthewire.org -p 2220
+...
+For support, questions or comments, contact us on discord or IRC. 
+Enjoy your stay! 
+Byebye ! 
+Connection to bandit.labs.overthewire.org closed. 
 ```
 
-## Level 11
+By adding the command right after the ssh command, we might be able to execute it before the connection closes:
+```bash
+krussve@kali:~$ ssh bandit18@bandit.labs.overthewire.org -p 2220 ls
+                         _                     _ _ _   
+                        | |__   __ _ _ __   __| (_) |_ 
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_ 
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+                                                       
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+bandit18@bandit.labs.overthewire.org´s password: 
+readme
+```
+```bash 
+krussve@kali:~$ ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
+                         _                     _ _ _   
+                        | |__   __ _ _ __   __| (_) |_ 
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_ 
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+                                                       
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+bandit18@bandit.labs.overthewire.org´s password: 
+awhqfNnAbc1naukrpqDYcF95h7HoMTrC
+```
+
+
+
+## Level 19
 
 <hr>
 
-- Username: bandit <br>
-- Password: bandit <br>
-- Task: 
+- Username: bandit19 <br>
+- Password: awhqfNnAbc1naukrpqDYcF95h7HoMTrC <br>
+- Task: To gain access to the next level, you should use the setuid binary in the homedirectory. Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.
 
+
+When executing the binary "./bandit20-do" we get the hint, that we are able to execute a command as another user. When we try the command "id" without the binary, we are only bandit19, but with the binary we receive the euid (effective user id which the process will use) bandit20! So now just extract the password using the binary:
 ```bash
-
+bandit19@bandit:~$ ls
+bandit20-do
+bandit19@bandit:~$ ./bandit20-do 
+Run a command as another user.
+  Example: ./bandit20-do id
+bandit19@bandit:~$ id 
+uid=11019(bandit19) gid=11019(bandit19) groups=11019(bandit19) 
+bandit19@bandit:~$ ./bandit20-do id 
+uid=11019(bandit19) gid=11019(bandit19) euid=11020(bandit20) groups=11019(bandit19) 
+bandit19@bandit:~$ ./bandit20-do cat /etc/bandit_pass/bandit20
+VxCazJaVykI6W36BkBU0mJTCM8rR95XT
 ```
 
-## Level 11
+## Level 20
 
 <hr>
 
-- Username: bandit <br>
-- Password: bandit <br>
-- Task: 
+- Username: bandit20 <br>
+- Password: VxCazJaVykI6W36BkBU0mJTCM8rR95XT <br>
+- Task: There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).
+  * NOTE: Try connecting to your own network daemon to see if it works as you think
 
+Using netcat, we listen to a connection (-l) on the port (-p) 1234 and send the password (echo ...) to the connection once established. The command is backgrounded by the "&".
 ```bash
+bandit20@bandit:~$ echo 'VxcazJaVyk16W36BkBUømJTCN8rR95XT' | nc -l -p 1234 &
+[1] 2619805 
+bandit20@bandit:~$ ./suconnect 1234 
+Read: VxcazJaVyk16W36BkBUømJTCM8rR95XT 
+Password matches, sending next password 
+NvEJF70Vjkdd1tpsrdKEF011h9V11Bcq 
+[1] * Done 
 
 ```
 
@@ -317,11 +482,9 @@ Use [man](https://man7.org/linux/man-pages/index.html) pages to find explanation
 | Command | Description |
 |---------|-------------|
 |    tr     |  translate or delete characters   |
-|         |     |
-|         |     |
-|         |     |
-|         |     |
-|         |     |
-|         |     |
-|         |     |
-|         |     |
+|    xxd     |  xxd creates a hex dump of a given file or standard input   |
+|    tar/bzip2/gzip     |  archiving/compression program   |
+|     head    |  first 10 lines of output/file   |
+|     ssh -i sshkeyfile   |  ssh connection with a ssh private key file   |
+|    nmap     |  port and network scanner   |
+|     diff    |  output the difference between two files   |
