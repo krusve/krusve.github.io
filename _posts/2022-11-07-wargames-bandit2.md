@@ -31,7 +31,6 @@ Complex commands will be explained for each level, while the general commands ca
 - Username: bandit11 <br>
 - Password: 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM <br>
 - Task: The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
-Command: cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m' 
 
 ```bash
 bandit11@bandit:~$ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
