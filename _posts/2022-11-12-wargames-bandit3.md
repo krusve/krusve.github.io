@@ -109,8 +109,8 @@ QYw0Y2aiA672PsMmh9puTQuhoz8SyR2G
 	* NOTE: This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!
 	* NOTE 2: Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…
 
-We see that the script /usr/bin/cronjob_bandit24.sh first executes and then removes all files in the directory /var/spool/$myname/foo. So I put a script in the directory that outputs the password to our own tmp dir. 
-Remember to set the directory and file permissions, so that this process is able to execute and write to the directory/file! 
+We see that the script /usr/bin/cronjob_bandit24.sh first executes and then removes all files in the directory /var/spool/$myname/foo. So I put a script in the directory that outputs the password to our tmp dir. 
+Remember to set the directory and file permissions, so that this process can execute and write to the directory/file! 
 
 ```bash
 bandit23@bandit:~$ ls /etc/cron.d
@@ -246,8 +246,8 @@ IZdtF5HXs2S5CADTwniUS5mXIH0915gUkk+hOcH5JnPtsMCnAUM+BRY=
 —————END RSA PRIVATE KEY————— 
 ```
 
-We have extracted the SSH key, but don't leave yet!
-First we will have a look at what shell bandit26 is using, which we can extract from the passwd file:
+We have extracted the SSH key, but don't leave yet!<br>
+First, we will have a look at what shell bandit26 is using, which we can extract from the passwd file:
 ```bash
 bandit25@bandit:~$ cat /etc/passwd | grep bandit26
 bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
@@ -264,7 +264,7 @@ We see that there is a command called "more". To make it execute, the window of 
 ```
 ssh -i ssh26.privatefile bandit26@bandit.labs.overthewire.org -p 2220
 ```
-Now if you were successful, you should be loged in.
+Now if you were successful, you should be logged in.
 Now press "v" to start the vim editor then do the following in that window:
 ```bash
 :set shell=/bin/bash 
@@ -557,7 +557,7 @@ error: failed to push some refs to 'ssh://localhost:2220/home/bandit31-git/repo'
 
 - Username: bandit32 <br>
 - Password: rmCBvG56y58BXzv98yZGd07ATVL5dW8y
-- Task: After all this git stuff its time for another escape. Good luck!
+- Task: After all this git stuff it's time for another escape. Good luck!
 
 ```bash
 WELCOME TO THE UPPERCASE SHELL 

