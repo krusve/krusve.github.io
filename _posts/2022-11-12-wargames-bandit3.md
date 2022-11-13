@@ -1,6 +1,6 @@
 ---
 title: "OverTheWire Wargames: Bandit Level 21-33"
-date: 2022-11-07 20:13:00 +0100
+date: 2022-11-12 20:13:00 +0100
 categories: [Wargames, Bandit]
 tags: [bandit, linux, overthewire, wargames, commandline]     # TAG names should always be lowercase
 ---
