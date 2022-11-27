@@ -1,8 +1,8 @@
 ---
 title: "Burpsuite setup with Firefox"
 date: 2022-11-27 19:27:00 +0100
-categories: [Tools, installation]
-tags: [busrpsuite, installation, foxyproxy, kali linux, tools]     # TAG names should always be lowercase
+categories: [Tools, Burpsuite]
+tags: [busrpsuite, Busprsuite, foxyproxy, kali linux, tools]     # TAG names should always be lowercase
 ---
 
 A guide on how to setup Burpsuite on Firefox with the FoxyProxy Extension.
