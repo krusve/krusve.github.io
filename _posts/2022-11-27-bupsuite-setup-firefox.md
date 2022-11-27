@@ -7,14 +7,14 @@ tags: [busrpsuite, installation, foxyproxy, kali linux, tools]     # TAG names s
 
 A guide on how to setup Burpsuite on Firefox with the FoxyProxy Extension.
 
-## Install FoxyProxy add-on in Firefox 
+## 1. Install FoxyProxy add-on in Firefox 
 <hr>
 
 - First we'll need to add the Add-on and configure it:<br>
 - Firefox Settings -> "Extensions & Themes" left bottom in the sidemenu <br>
 - Search for FoxyProxy and install
 
-### Configure FoxyProxy
+### 2. Configure FoxyProxy
 <hr>
 
 After Installation click on the FoxyProxy Icon and go to "Options"
@@ -23,7 +23,7 @@ After Installation click on the FoxyProxy Icon and go to "Options"
    
 
 
-## Configure Burpsuite
+## 3. Configure Burpsuite
 <hr>
 
 - Go to "options" in the Proxy tab
@@ -34,13 +34,13 @@ After Installation click on the FoxyProxy Icon and go to "Options"
         - Add Specific adress: 127.0.0.1
         - Click "OK"
 
-### Import Certificate
+### 4. Import Certificate
 -  Click on "Import / export CA certificate" underneath the Proxy Listeners
     ![FoxyProxy options](/assets/img/post-images/burpsuiteoptionsCA.png)
     - A prompt will show asking for the format. Choose "Certificate in DER format" under Export
     ![FoxyProxy options](/assets/img/post-images/burpsuiteoptionsDER.png)
 
-## Configure Firefox
+## 5. Configure Firefox
 <hr>
 
 - Go to settings -> "Privacy & Security" -> Scroll to "Certificates" section (or search in the searchbar)
@@ -49,7 +49,7 @@ After Installation click on the FoxyProxy Icon and go to "Options"
     - Click on "Import" and select the previosuly saved .der certificate file
     - After installation make sure PortsSwigger is in the list of Authorities
 
-## All done!
+## 6. All done!
 <hr>
 
 - Now start up Burpsuite and Turn on Interceptions
