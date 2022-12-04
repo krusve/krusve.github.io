@@ -157,7 +157,9 @@ And we find 5 entries saying ```"Tomcat documentation found"```.
 
 **Q8** and **Q9** again needs us to take a look at our earlier nmap scan.
 
-Now we know both from gobuster and from Q7 that we have the /manager/ directory, which after a short google sesh turns out to have several possiuble vulnerabilities. 
+## Exploit
+
+Now we know both from gobuster and from Q7 that we have the /manager/ directory, which after a short google sesh turns out to have several possible vulnerabilities. 
 
 Start Metasploit with ```"msfconsole"``` and use the "search" functionaility of metasploit to find an exploit we can use:
 ```shell
