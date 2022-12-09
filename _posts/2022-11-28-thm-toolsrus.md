@@ -96,7 +96,7 @@ We can already answer **Q1**.
 <hr>
 
 
-Go and check out the directories and we find ``` "Hey bob, did you update that TomCat server?" ```.
+Go and check out the directories and we find ```"Hey bob, did you update that TomCat server?"```.
 And secondly we find a page requiring authentication.
 
 Now go and answer **Q2** and **Q3**.
@@ -161,7 +161,7 @@ And we find 5 entries saying ```"Tomcat documentation found"```.
 
 Now we know both from gobuster and from Q7 that we have the /manager/ directory, which after a short google sesh turns out to have several possible vulnerabilities. 
 
-Start Metasploit with ```"msfconsole"``` and use the "search" functionaility of metasploit to find an exploit we can use:
+Start Metasploit with ```msfconsole``` and use the "search" functionaility of metasploit to find an exploit we can use:
 ```shell
 msf6 >  search tomcat manager
 
