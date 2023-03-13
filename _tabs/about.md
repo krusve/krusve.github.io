@@ -23,4 +23,4 @@ This is a personal blog. Any views or opinions represented in this blog are pers
 All content provided on this blog is for informational purposes only. The owner of this blog makes no representations as to the accuracy or completeness of any information on this site or found by following any link on this site.
 </span>
 
-Feel free to comment or contact me regarding anything.
+Feel free to comment or contact me.
