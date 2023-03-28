@@ -300,7 +300,7 @@ When using a photon, measurements are done using polaroids with a particular fil
 and can be done in praxis. The states of a qubit can be represented as a result of
 the two unit vectors $\ket\uparrow$ and $\ket\rightarrow$, and is represented by the equation:
 
-$$ \ket 𝑣 = 𝑎 \ket\uparrow+𝑏\ket\rightarrow (2.0) $$
+$$ \ket 𝑣 = 𝑎 \ket\uparrow+𝑏\ket\rightarrow \;\;\;\;\;\; (2.0) $$
 
 
 
@@ -336,79 +336,75 @@ The first experiment uses one filter with polarization $\ket\rightarrow$. In thi
 are aligned with the corresponding filter, so the result is intense light.
 
 
+![Single Qubit State](/assets/img/crypto_article_images/one-filter-experiment.png){: w="700"}
+_Figure 2 : Experiment with one filter<sup>8</sup>_
 
-
-
-Figure 2 : Experiment with one filter^8
 
 Those photons with a different polarization will be reoriented and lose some of their
 magnitudes, as shown in Figure 3.
 
-Figure 3 : Reorientation of photon^9
+![Single Qubit State](/assets/img/crypto_article_images/photon-reorientation1.png){: w="700"}
+_Figure 3 : Reorientation of photon<sup>9</sup>_
 
 The light with opposite polarization will lose all its magnitude, as seen in Figure 4,
 so it is absorbed completely.
 
-Figure 4 : Absorbing photon^10
+![Single Qubit State](/assets/img/crypto_article_images/photon-reorientation2.png){: w="700"}
+_Figure 4 : Absorbing photon<sup>10</sup>_
 
 
-9 (Finley, 2004)^
-10 (Finley, 2004)^
-(Finley, 2004)
 
 
 
 ### Second experiment
 
-In the second experiment, two filters are used, with polarization |↑⟩ and |→⟩.
 
-Figure 5 : Experiment with two filters^11
+In the second experiment, two filters are used, with polarization $\ket\uparrow$ and $\ket\rightarrow$.
+
+![Single Qubit State](/assets/img/crypto_article_images/two-filters-experiment.png){: w="700"}
+_Figure 5 : Experiment with two filters<sup>11</sup>_
+
 
 Using the conclusions from the previous experiment, we know that all photons’
-amplitudes are aligned with the filter |→⟩, but will then get absorbed entirely by the
-filter |↑⟩, because the magnitude falls to zero.
+amplitudes are aligned with the filter $\ket\rightarrow$, but will then get absorbed entirely by the
+filter $\ket\uparrow$, because the magnitude falls to zero.
 
-Third experiment
+### Third experiment
 
 In the last experiment, three filters are used:
-One with |→⟩ polarization, then one with |↘⟩ polarization, and the last one with |↑⟩.
+One with $\ket\rightarrow$ polarization, then one with |↘⟩ polarization, and the last one with $\ket\uparrow$.
 
-Figure 6 : Experiment with three filters^12
+![Single Qubit State](/assets/img/crypto_article_images/three-filters-experiment.png){: w="700"}
+_Figure 6 : Experiment with three filters<sup>12</sup>_
 
 The exciting part of this experiment is that we would expect no light to get through,
 like in the second experiment. But as we see, some light does not get absorbed.
-The reason is that the photons are first aligned with the |→⟩ Filter. If we look at our
-previous |𝑣⟩=𝑎|↑⟩+𝑏|→⟩ we have a = 0 and b = 1. When arriving at the second
-
-
-12 (Finley, 2004)^
-(Finley, 2004)
-
-
-
-filter, a new measurement is done. The probability of the photons getting through is
+The reason is that the photons are first aligned with the $\ket\rightarrow$ Filter. If we look at our
+previous $\ket 𝑣 = 𝑎 \ket\uparrow+𝑏\ket\rightarrow$ we have $a = 0$ and $b = 1$. When arriving at the second filter, a new measurement is done. The probability of the photons getting through is
 shown with the following equation:
 
-|𝑣⟩= (^) √^12 |↘⟩+√^12 |↗⟩ (^2 .1)^
+$$ \ket 𝑣= \frac{1}{\sqrt{2}} \ket\searrow + \frac{1}{\sqrt{2}} \ket\nearrow \;\;\;\;\;\; (2.1)$$
+
 Because we will have some photons that align with the new polarization while others
-will not. In our case, this gives us a |√^12 |² = ½ probability of the photon getting through.
+will not. In our case, this gives us $a|\frac{1}{\sqrt{2}} |^2 = \frac{1}{2}$ probability of the photon getting through.
 At the last filter, the same process repeats. The equation looks as follows:
-|𝑣⟩=√^12 |↑⟩+√^12 |→⟩ (2.2)^
-resulting in the following probability for the photons to get through: |√^12 |² = ½.^13
-Takeaways
-Measurement
+
+$$ \ket 𝑣=\frac{1}{\sqrt{2}} \ket\uparrow + \frac{1}{\sqrt{2}} \ket\rightarrow \;\;\;\;\;\; (2.2) $$
+
+resulting in the following probability for the photons to get through: $|\frac{1}{\sqrt{2}}|^2=\frac{1}{2}$ .<sup>13</sup>
+
+### Takeaways
+#### Measurement
 The concept of measurement in quantum computing refers to transforming the qubit
 to a specific state and turning that information into a classical form. This experiment
 goes to show that qubits are probabilistic. Whenever a measurement is done, the
-amplitudes of its polarization determine what state it takes on in the measurement.^14
-Superposition
+amplitudes of its polarization determine what state it takes on in the measurement.<sup>14</sup>
+
+#### Superposition
 Furthermore, we saw that until the measurement is done, the qubit will be in a
 superposition of various states and only sets on a specific value when a
 measurement is done.
 
-
-14 (Rieffel & Polak , 2011, S. 13)^
-(Abhijith J., 2022, S. 5)
 
 
 
