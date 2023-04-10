@@ -21,6 +21,7 @@ implement post-quantum cryptography. Lastly, the steps needed to implement
 Post Quantum Cryptography are presented. Cryptographic agility, Cryptographic
 inventory, and several risk frameworks are introduced to give organizations a clear
 path on what steps are required to be prepared for the quantum future.
+
 <br>
 <br>
 
@@ -200,7 +201,7 @@ In 1981 Richard P. Feynman ended a lecture with the words: “[...] because natu
 isn’t classical, dammit, and if you want to make a simulation of nature, you’d
 better make it quantum mechanical, and by golly it’s a wonderful problem,
 because it doesn’t look so easy.” (Feynman, 1982, S. 486)<sup>61</sup>. Feynman held this
-lecture when quantum computing was barely a theory. Now, 40 years
+lecture when quantum computing was barely a field. Now, 40 years
 later, Quantum Computing poses such an immediate threat to the status quo that
 <abbr title="National Institute of Standards and Technology">NIST</abbr> (National Institute of Standards and Technology) is choosing algorithms to
 become the new standards for Public-Key Encryption and Key-establishments.<sup>1</sup>
@@ -311,7 +312,7 @@ and $\ket\rightarrow$.<sup>5</sup> An example is the 45&deg; degrees line in Fig
 
 
 
-![Single Qubit State](/assets/img/crypto_article_images/single-qubit-state.png){: w="700"}
+![Single Qubit State](/assets/img/crypto_article_images/single-qubit-state.png){: w="500"}
 _Figure 1 : Two-dimensional qubit representation<sup>6</sup>_
 
 
@@ -336,20 +337,20 @@ The first experiment uses one filter with polarization $\ket\rightarrow$. In thi
 are aligned with the corresponding filter, so the result is intense light.
 
 
-![Single Qubit State](/assets/img/crypto_article_images/one-filter-experiment.png){: w="700"}
+![Single Qubit State](/assets/img/crypto_article_images/one-filter-experiment.png){: w="500"}
 _Figure 2 : Experiment with one filter<sup>8</sup>_
 
 
 Those photons with a different polarization will be reoriented and lose some of their
 magnitudes, as shown in Figure 3.
 
-![Single Qubit State](/assets/img/crypto_article_images/photon-reorientation1.png){: w="700"}
+![Single Qubit State](/assets/img/crypto_article_images/photon-reorientation1.png){: w="500"}
 _Figure 3 : Reorientation of photon<sup>9</sup>_
 
 The light with opposite polarization will lose all its magnitude, as seen in Figure 4,
 so it is absorbed completely.
 
-![Single Qubit State](/assets/img/crypto_article_images/photon-reorientation2.png){: w="700"}
+![Single Qubit State](/assets/img/crypto_article_images/photon-reorientation2.png){: w="500"}
 _Figure 4 : Absorbing photon<sup>10</sup>_
 
 
@@ -361,7 +362,7 @@ _Figure 4 : Absorbing photon<sup>10</sup>_
 
 In the second experiment, two filters are used, with polarization $\ket\uparrow$ and $\ket\rightarrow$.
 
-![Single Qubit State](/assets/img/crypto_article_images/two-filters-experiment.png){: w="700"}
+![Single Qubit State](/assets/img/crypto_article_images/two-filters-experiment.png){: w="500"}
 _Figure 5 : Experiment with two filters<sup>11</sup>_
 
 
@@ -374,7 +375,7 @@ filter $\ket\uparrow$, because the magnitude falls to zero.
 In the last experiment, three filters are used:
 One with $\ket\rightarrow$ polarization, then one with |↘⟩ polarization, and the last one with $\ket\uparrow$.
 
-![Single Qubit State](/assets/img/crypto_article_images/three-filters-experiment.png){: w="700"}
+![Single Qubit State](/assets/img/crypto_article_images/three-filters-experiment.png){: w="500"}
 _Figure 6 : Experiment with three filters<sup>12</sup>_
 
 The exciting part of this experiment is that we would expect no light to get through,
@@ -391,7 +392,9 @@ At the last filter, the same process repeats. The equation looks as follows:
 
 $$ \ket 𝑣=\frac{1}{\sqrt{2}} \ket\uparrow + \frac{1}{\sqrt{2}} \ket\rightarrow \;\;\;\;\;\; (2.2) $$
 
-resulting in the following probability for the photons to get through: $|\frac{1}{\sqrt{2}}|^2=\frac{1}{2}$ .<sup>13</sup>
+resulting in the following probability for the photons to get through: 
+$|\frac{1}{\sqrt{2}}|^2=\frac{1}{2}$ 
+.<sup>13</sup>
 
 ### Takeaways
 #### Measurement
@@ -412,13 +415,13 @@ measurement is done.
 
 So far, we have looked at singular qubits and how they work, but one of the main
 reasons for quantum computing incredible power lies in the phenomenon of
-entanglement.^15
+entanglement.<sup>15</sup> 
 This mechanism means that two qubits can be connected, so measuring one qubit
 will also give the result of the second qubit. Entanglement can be done to many
-qubits, creating one massive unit for computation.^16
+qubits, creating one massive unit for computation.<sup>16</sup>
 Each qubit, which already can be in an infinite number of states, could influence the
 other qubits it’s entangled with. N qubits can approximately compute 2 𝑛 Numbers.
-This results in exponential growth for each added qubit.^17
+This results in exponential growth for each added qubit.<sup>17</sup>
 
 
 ## 2.1.4 GATES
@@ -441,17 +444,9 @@ Since the time complexity of classical algorithms and quantum algorithms cant be
 easily compared, in this case, the runtime is used.
 
 
-16 (Abhijith J., 2022, S. 4)^
-17 (Abhijith J., 2022, S. 5)^
-(Abhijith J., 2022, S. 4)
 
-
-```
-Figure 7 : Shor **’** s algorithm time complexity^18
-
-
-```
-(Aumasson, 2018, S. 260)
+![Single Qubit State](/assets/img/crypto_article_images/shors-time-complexity.png){: w="500"}
+_Figure 7 : Shor’s algorithm time complexity<sup>18</sup>_
 
 
 
@@ -1224,7 +1219,7 @@ Quantum supremacy using a programmable superconducting processor.
 Nature, 574(7779), 505-510. doi:10.1038/s41586- 019 - 1666 - 5
 <br>
 
-<sup>4, 18, 19, 25, 28</sup>
+<sup>4, 19, 25, 28</sup>
 Aumasson, J.-P. (2018). Serious Cryptography: A Practical Introduction to Modern
 Encryption (5th ed.). No Starch Press. Retrieved 10 12, 2022
 <br>
@@ -1428,6 +1423,11 @@ Sullivan , B. (2010). Cryptographic Agility. Microsoft Corporation. Retrieved 11
 2022, from [http://media.blackhat.com/bh-us-](http://media.blackhat.com/bh-us-)
 10/whitepapers/Sullivan/BlackHat-USA- 2010 - Sullivan-Cryptographic-Agility-
 wp.pdf
+<br>
+
+
+<sup>18</sup>
+Silva, Vladimir. (2018).Practical Quantum Computing for Developers: Programming Quantum Rigs in the Cloud using Python, Quantum Assembly Language and IBM QExperience. Apress; 1st ed. edition Retrieved 11 12, 2022.
 <br>
 
 <sup>39</sup>
