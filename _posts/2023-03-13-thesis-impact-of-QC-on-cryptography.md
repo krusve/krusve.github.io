@@ -337,20 +337,20 @@ The first experiment uses one filter with polarization $\ket\rightarrow$. In thi
 are aligned with the corresponding filter, so the result is intense light.
 
 
-![Single Qubit State](/assets/img/crypto_article_images/one-filter-experiment.png){: w="500"}
+![One filter experiment](/assets/img/crypto_article_images/one-filter-experiment.png){: w="500"}
 _Figure 2 : Experiment with one filter<sup>8</sup>_
 
 
 Those photons with a different polarization will be reoriented and lose some of their
 magnitudes, as shown in Figure 3.
 
-![Single Qubit State](/assets/img/crypto_article_images/photon-reorientation1.png){: w="500"}
+![Photon reorientation](/assets/img/crypto_article_images/photon-reorientation1.png){: w="500"}
 _Figure 3 : Reorientation of photon<sup>9</sup>_
 
 The light with opposite polarization will lose all its magnitude, as seen in Figure 4,
 so it is absorbed completely.
 
-![Single Qubit State](/assets/img/crypto_article_images/photon-reorientation2.png){: w="500"}
+![Photon absorbtion](/assets/img/crypto_article_images/photon-reorientation2.png){: w="500"}
 _Figure 4 : Absorbing photon<sup>10</sup>_
 
 
@@ -362,7 +362,7 @@ _Figure 4 : Absorbing photon<sup>10</sup>_
 
 In the second experiment, two filters are used, with polarization $\ket\uparrow$ and $\ket\rightarrow$.
 
-![Single Qubit State](/assets/img/crypto_article_images/two-filters-experiment.png){: w="500"}
+![Two filter experiment](/assets/img/crypto_article_images/two-filters-experiment.png){: w="500"}
 _Figure 5 : Experiment with two filters<sup>11</sup>_
 
 
@@ -375,7 +375,7 @@ filter $\ket\uparrow$, because the magnitude falls to zero.
 In the last experiment, three filters are used:
 One with $\ket\rightarrow$ polarization, then one with |↘⟩ polarization, and the last one with $\ket\uparrow$.
 
-![Single Qubit State](/assets/img/crypto_article_images/three-filters-experiment.png){: w="500"}
+![Three filter experiment](/assets/img/crypto_article_images/three-filters-experiment.png){: w="500"}
 _Figure 6 : Experiment with three filters<sup>12</sup>_
 
 The exciting part of this experiment is that we would expect no light to get through,
@@ -445,7 +445,7 @@ easily compared, in this case, the runtime is used.
 
 
 
-![Single Qubit State](/assets/img/crypto_article_images/shors-time-complexity.png){: w="500"}
+![Shors complexity](/assets/img/crypto_article_images/shors-time-complexity.png){: w="500"}
 _Figure 7 : Shor’s algorithm time complexity<sup>18</sup>_
 
 
@@ -463,47 +463,36 @@ function. The detailed functionality of Shor’s algorithm to factorize a number
 explained in Appendix 8. This can be used to solve classically hard problems,
 like factoring, discrete logarithm, and elliptic curve discrete logarithm, essentially
 breaking all forms of public-key cryptography, such as <abbr title="Rivest–Shamir–Adleman">RSA</abbr>, Diffie-Hellmann and
-Elliptic Curve Cryptography.^19
+Elliptic Curve Cryptography.<sup>19</sup>
 No equivalent classical algorithm achieves exponential speed-up; the most
 significant number factored was <abbr title="Rivest–Shamir–Adleman">RSA</abbr>- 250 , which is an 829 - bit number. This
 factorization took approximately 2700 <abbr title="Core Processing Unit">CPU</abbr> years (using Intel Xeon Gold 6130
-at 2.10<abbr title="Gigahertz">GHz</abbr> as reference) with the help of the Juwels Supercomputer.^20 Even
-though this achievement is impressive, it’s far from the National Institute of
-Standards and Technology (<abbr title="National Institute of Standards and Technology">NIST</abbr>) recommendation of 2048 bits.^21
+at 2.10<abbr title="Gigahertz">GHz</abbr> as reference) with the help of the Juwels Supercomputer.<sup>20</sup> 
+Even though this achievement is impressive, it’s far from the National Institute of
+Standards and Technology (<abbr title="National Institute of Standards and Technology">NIST</abbr>) recommendation of 2048 bits.<sup>21</sup>
 Even for current quantum computers, the available number of qubits is simply
 insufficient to factor large numbers. For example, their experiment (Amico,
 Saleem, & Kumph, 2019) managed to factor the number 15 but failed at 35
-because the currently available quantum computers are too error-prone.^22
+because the currently available quantum computers are too error-prone.<sup>22</sup>
 Still, in only five years, the number of qubits has gone from approximately
-2000 , achieved by D-Wave in 2017,^23 to 5000 in 2022, performed by the
-Forschungszentrum Jülich^24.
+2000 , achieved by D-Wave in 2017,<sup>23</sup> to 5000 in 2022, performed by the
+Forschungszentrum Jülich.<sup>24</sup>
 As the development of new systems and technologies for quantum computers
 continues, the time to mitigate the risk posed by future applications of, among
 others, Shor’s algorithm is running out.
-```
-### 19
+<br>
 
-20 (Aumasson, 2018, S. 259)^
-21 (Boudot, et al., 2020, S. 26)^
-22 (Barker & Roginsky, 2019, S. 16)^
-23 (Amico, Saleem, & Kumph, 2019, S. 7)^
-24 (Gibney, 2017, S. 1)^
-(Forschungszentrum Jülich, 2022)
-
-
-```
-CHAPTER: 3. IMPACT OF QUANTUM COMPUTING ON CRYPTOGRAPHY 12
 Another such algorithm is Grover’s, which threatens symmetric encryption by
 achieving quadratic quantum speed-up. This algorithm can find the correct
-solution x from n number of options. Thereby satisfying a function 𝑓(𝑥)= 1 if the
-solution is found, or 𝑓(𝑥)= 0 if the solution is incorrect. If we take this a step
+solution $x$ from $n$ number of options. Thereby satisfying a function $𝑓(𝑥)= 1$ if the
+solution is found, or $𝑓(𝑥)= 0$ if the solution is incorrect. If we take this a step
 further and say we have an unknown symmetric key K and known Plaintext and
-Ciphertext P and C, we could set up a function where 𝑓(𝑥)= 1 only if x equals
-K in the encryption function 𝑒(𝐾,𝑃)=𝐶. A classical equivalent would need
-𝑂(𝑛/𝑚). For such a problem, Grover’s, through the quadratic speed-up, only
-needs 𝑂(√𝑚𝑛). The good news, in this case, is that Grover’s algorithm essentially
+Ciphertext $P$ and $C$, we could set up a function where $𝑓(𝑥)= 1$ only if x equals
+K in the encryption function $𝑒(𝐾,𝑃)=𝐶$. A classical equivalent would need
+$𝑂(𝑛/𝑚)$. For such a problem, Grover’s, through the quadratic speed-up, only
+needs $𝑂(\sqrt{\frac{n}{m}})$. The good news, in this case, is that Grover’s algorithm essentially
 halves the security of any symmetric algorithm. So using <abbr title="Advanced Encryption Standard">AES</abbr> today with 128-bit
-security would mean it only has 64-bit security when applying Grover.^25
+security would mean it only has 64-bit security when applying Grover.<sup>25</sup>
 The conclusion is that symmetric ciphers can still be used. However, their size
 has to be doubled Post Quantum to keep the “pre-quantum” security levels used
 today.
@@ -512,7 +501,6 @@ small error rate to be reliable, most Asymmetric Algorithms will essentially be
 worthless, such as <abbr title="Rivest–Shamir–Adleman">RSA</abbr> (factorization), Diffie-Hellmann (Discrete Logarithm),
 and Elliptic Curve Cryptography (Elliptic Curve Discrete Logarithm).
 
-(Aumasson, 2018, S. 259)
 
 
 
@@ -532,7 +520,7 @@ quantum technology to create unbreakable protocols using the very laws of nature
 In 2017, <abbr title="National Institute of Standards and Technology">NIST</abbr> started a competition to collect and evaluate new cryptographic
 algorithms to be used as the new standard for <abbr title="Post Quantum Cryptography">PQC</abbr>.
 In 2022 <abbr title="National Institute of Standards and Technology">NIST</abbr> selected four algorithms as candidates for the fourth and last
-evaluation phase.^26
+evaluation phase.<sup>26</sup>
 Among these candidates, one is for Key exchange and Public Key Encryption, while
 three are for digital signatures.
 Among the chosen ones, two technologies are used:
@@ -547,36 +535,31 @@ Lattices are grids of coordinates on an n-dimensional plane, as shown in Figure 
 with a 2-dimensional example, that pre-defined basis vectors have generated.
 
 
-
-(NIST, 2022)
-
-
-Figure 8 : Lattice example^27
+![lattice example](/assets/img/crypto_article_images/lattice_example.png){: w="500"}
+_Figure 8: Lattice example<sup>27</sup>_
 
 Because basis vectors generate the points, they can all be reached by combinations
 and scaling of the vectors.
 
-Short Integer Solution Problem
+<br>
+
+#### Short Integer Solution Problem
 
 Used by several of the <abbr title="National Institute of Standards and Technology">NIST</abbr> competition candidates use the Short Integer Solution
 Problem (<abbr title="Shortest Integer Solution Problem">SIS</abbr>).
-This problem to be solved in <abbr title="Shortest Integer Solution Problem">SIS</abbr> is to find s in the equation 𝑏=𝐴𝑠 𝑚𝑜𝑑 𝑞 for a given
-Lattice A, a given number b, and a prime number q.^28
+This problem to be solved in <abbr title="Shortest Integer Solution Problem">SIS</abbr> is to find $s$ in the equation $𝑏=As \bmod q$ for a given
+Lattice $A$, a given number $b$, and a prime number $q$.<sup>28</sup>
 
-Figure 9 : Shortest Integer Solution^29
+![SIS Problem](/assets/img/crypto_article_images/SIS-problem.png){: w="500"}
+_Figure 9: Shortest Integer Solution<sup>29</sup>_
 
-All possible solutions s can be plotted as a Lattice, shown in Figure 9. The issue is
+
+All possible solutions $s$ can be plotted as a Lattice, shown in Figure 9. The issue is
 to find the closest (inside the red circle) to but unequal to the origin (blue point).
 
-
-28 (Alwen, 2018)^
-29 (Aumasson, 2018, S. 264)^
-(ISARA Corporation, 2022)
-
-
-Given a 2-dimensional Lattice, s is easy to find. Still, with more dimensions, the
+Given a 2-dimensional Lattice, $s$ is easy to find. Still, with more dimensions, the
 problem gets increasingly challenging because there is no efficient way to solve it
-without secret information about the lattice that only the owner has.^30
+without secret information about the lattice that only the owner has.<sup>30</sup>
 
 
 ### 4.1.2 HASH-BASED CRYPTO
@@ -587,30 +570,22 @@ Shake256, used by the <abbr title="National Institute of Standards and Technolog
 
 The primary attack vector on hashes is to find two different strings that result in the
 same hash. This is called a collision and would result in the possibility of an attacker
-impersonating the actual hash owner. However, in his paper (Bernstein, 2009, S.
-10), D.J Bernstein found that the cost of an attack by a quantum computer would
+impersonating the actual hash owner. However, in his paper (Bernstein, 2009, S.10), D.J Bernstein found that the cost of an attack by a quantum computer would
 not be any more efficient than those performed by modern classical computers as
 their algorithms of attacking such hashes are more efficient.
 
-These forms of hashes are based on the Winternitz one-time signature (<abbr title="Winternitz one-time signature">WOTS</abbr>) and
-a high-level work as follows:
-A parameter w is given, and the message to be signed is represented by a number
-M between 0 and w-1. The private key is created by generating 32 random 256 - bit
-numbers.
-To create the signature, the hash is repeated M times on K, so
-Hash(Hash(...(Hash(K))) = 𝐻𝑎𝑠ℎ𝑀(𝐾). The public key is 𝐻𝑎𝑠ℎw(𝐾). When we want
-to verify the signature S, we compute 𝐻𝑎𝑠ℎ𝑤−𝑀(𝑆), which will turn the signature into
-the public key 𝐻𝑎𝑠ℎw(𝐾), because we now hashed the signature M + (w – M) = w
+These forms of hashes are based on the Winternitz one-time signature (<abbr title="Winternitz one-time signature">WOTS</abbr>) and on a high-level work as follows:
+A parameter $w$ is given, and the message to be signed is represented by a number
+$M$ between $0$ and $w-1$. The private key is created by generating 32 random 256-bit numbers.
+To create the signature, the hash is repeated $M$ times on $K$, so
+$Hash(Hash(...(Hash(K))) = 𝐻𝑎𝑠ℎ^𝑀(𝐾)$. The public key is $𝐻𝑎𝑠ℎ^w(𝐾)$. When we want
+to verify the signature $S$, we compute $𝐻𝑎𝑠ℎ^{𝑤−𝑀}(𝑆)$, which will turn the signature into
+the public key $𝐻𝑎𝑠ℎ^w(𝐾)$, because we now hashed the signature $M + (w – M) = w$
 times, which is the same as the public key.
 
-Other options available show potential as <abbr title="Post Quantum Cryptography">PQC</abbr> algorithms, such as multivariate and
-code-based algorithms, but the ones covered so far are implemented in the <abbr title="National Institute of Standards and Technology">NIST</abbr>
+Other options such as multivariate and
+code-based algorithms show potential as <abbr title="Post Quantum Cryptography">PQC</abbr> algorithms, but the ones covered so far are implemented in the <abbr title="National Institute of Standards and Technology">NIST</abbr>
 candidates for <abbr title="Post Quantum Cryptography">PQC</abbr> standardization and, therefore, the main options.
-
-
-
-(Nejatollahi, et al., 2019, S. 4)
-
 
 
 
@@ -621,7 +596,7 @@ broken by quantum computing, Quantum cryptography uses the laws and
 mechanisms of quantum computing to create inherently unbreakable algorithms.
 Inherently unbreakable means that some of the quantum cryptography algorithms
 have been devised that cannot be broken due to the very laws of nature, as we will
-see.^31
+see.<sup>31</sup>
 
 ### 4.2.1 QUANTUM KEY DISTRIBUTION (QKD)
 
@@ -635,32 +610,25 @@ The basic idea is that Alice and Bob need to find a private key while using a pu
 channel with potential eavesdroppers.
 For this purpose, Alice generates a random string of bits.
 Alice conveyed these bits in one of two ways. First, photons that have a horizontal
-orientation (↕) and those with a 135 ° (⤡) orientation represent ones, while vertical
-(↔) and 45° (⤢) orientation represents 0.
+orientation ($\updownarrow$) and those with a 135° (⤡) orientation represent $1$, while vertical
+($\leftrightarrow$) and 45° (⤢) orientation represents $0$.
 When Alice sends the bits using the, she notes down which orientation she uses for
 the transmission, then sends them to Bob. When the photons arrive at Bob, he
-randomly chooses a direction for measurement, which 50 % of the time will result in
-a correct choice, and the other 50 % will not be able to make a measurement. So
+randomly chooses a direction for measurement, which 50% of the time will result in
+a correct choice, and the other 50% will not be able to make a measurement. So
 far, the pair has been using a quantum channel to transmit the photons (fiber cable),
 but the rest of the communication will use a public channel. Bob notes the resulting
 bits and reports to Alice which orientation he used for measuring. She replies
 whether the chosen directions are equal to the ones she used. Before finalizing the
 key, they will select random bits and compare these to check whether an
-
-### 31
-
-```
-(Singh, 2000, S. 332)
-```
-
-```
-CHAPTER: 4. MITIGATION TECHNOLOGIES 17
-```
 eavesdropper might have caused errors. The resulting bits are the final private key
-that can encrypt any following communication.^32
+that can encrypt any following communication.<sup>32</sup>
 Figure 10 shows the graphical representation of the entire process
 
-Figure 10 : Quantum Key Distribution (<abbr title="QKD Algorithm (Bennet and Brassard 1984)">BB84</abbr>)^33
+
+![BB84](/assets/img/crypto_article_images/bb84.png)
+_Figure 10: Quantum Key Distribution (<abbr title="QKD Algorithm (Bennet and Brassard 1984)">BB84</abbr>)<sup>33</sup>_
+
 
 The pair now has a key, but how can they be so sure that no eavesdropper could
 have altered or listened to the transmission?
@@ -669,16 +637,10 @@ measurement will result in a maximum of 50% correct choices, if an eavesdropper
 would listen to the transmission and retransmit the measured photons, Bob would
 end up with no less than 25% of accurate measurements. When Alice and Bob now
 compare a random choice of bits, they would identify a significant deviation in errors
-and restart the transmission.^34 Zurek and Wootters (Zurek & Wootters, 1982)
+and restart the transmission.<sup>34</sup> Zurek and Wootters (Zurek & Wootters, 1982)
 formulated and proved that a qubit, whose state is unknown, cannot be cloned.
 Therefore, the eavesdropper cannot recreate the transmission, so Bob and Alice will
 know something was changed when comparing the results.
-
-
-33 (Bennett & Brassard, 1984, S. 4)^
-34 (Bennett & Brassard, 1984, S. 5)^
-(Singh, 2000, S. 346)
-
 
 
 ## 4.3 PQC VS. QKD
@@ -709,21 +671,16 @@ implement in hardware. Makarov and Hjelme (Makarov & Hjelme, 2005) proved that
 hardware attacks exist, allowing a potential eavesdropper to create a key of their
 choosing by abusing vulnerabilities in hardware.
 On the other hand, <abbr title="Post Quantum Cryptography">PQC</abbr> is under development, and several candidates have passed
-the scrutiny of the <abbr title="National Institute of Standards and Technology">NIST</abbr> competition for <abbr title="Post Quantum Cryptography">PQC</abbr> algorithms^35. Even though
+the scrutiny of the <abbr title="National Institute of Standards and Technology">NIST</abbr> competition for <abbr title="Post Quantum Cryptography">PQC</abbr> algorithms.<sup>35</sup> Even though
 vulnerabilities might be identified in the future, these algorithms can be easily
 implemented into existing infrastructure and are much better understood than <abbr title="Quantum Key Distribution">QKD</abbr>
 so that vulnerabilities can be patched easier. Given the time pressure to implement
 a solution, the only solution seems to be to use <abbr title="Post Quantum Cryptography">PQC</abbr> until <abbr title="Quantum Key Distribution">QKD</abbr> has been further
 developed. Perhaps some of its drawbacks are fixed by developing new solutions.
 
-35
-(NIST, 2022)
-
-
-
 Eventually, <abbr title="Quantum Key Distribution">QKD</abbr> might be used in practice, but this requires much more research
 and is no immediate solution for companies looking to prevent ‘harvest now, decrypt
-later’ attacks as soon as possible.
+later’ attacks.
 
 
 
@@ -769,23 +726,22 @@ even though it has been around for much longer.
 
 Cryptographic agility is the concept that an infrastructure’s cryptography is set up
 so that it can be adapted or replaced whenever necessary. It goes both for
-software as well as hardware.^36
+software as well as hardware.<sup>36</sup>
 
 Cryptograph is constantly evolving, and several issues drive the need for
 cryptographic agility: The constant development of cryptanalysis and attacks
 against ciphers and cryptographic methods, “harvest now, attack later” techniques
 on data or devices that have a long lifetime and, of course, as mentioned before,
-the development of quantum computing.^37
+the development of quantum computing.<sup>37</sup>
 
 In the past, crypto agility has already been an important concept. For example, in
 2006 , when a new attack against the <abbr title="Secure Hash Algorithm">SHA</abbr>-1 cipher was found, enabling a collision
 attack within a realistic amount of operations. Furthermore, Leurent and Peyrin
 (Leurent & Peyrin, 2020) identified a collision attack that would allow a
-<abbr title="Pretty Good Privacy">PGP</abbr>/<abbr title="GNU Privacy Guard">GnuPG</abbr> user to impersonate another because the old <abbr title="Secure Hash Algorithm">SHA</abbr>- 1 cipher was still
-enabled in these libraries until recently.^38 Of course, this vulnerability led to
-immediate action recommendations to migrate to <abbr title="Secure Hash Algorithm">SHA</abbr>- 239. However, as Leurent
-and Peyrin found (Leurent & Peyrin, 2020), many applications still use <abbr title="Secure Hash Algorithm">SHA</abbr>- 1 ,
-some 15 years after it was deemed vulnerable.
+<abbr title="Pretty Good Privacy">PGP</abbr>/<abbr title="GNU Privacy Guard">GnuPG</abbr> user to impersonate another because the old <abbr title="Secure Hash Algorithm">SHA</abbr>-1 cipher was still
+enabled in these libraries until recently.<sup>38</sup> Of course, this vulnerability led to
+immediate action recommendations to migrate to <abbr title="Secure Hash Algorithm">SHA</abbr>-239. However, as Leurent
+and Peyrin found (Leurent & Peyrin, 2020), many applications still use <abbr title="Secure Hash Algorithm">SHA</abbr>-1 ,some 15 years after it was deemed vulnerable.
 
 These are just some examples where crypto agility would have made an incredible
 difference for organizations to adapt to the vulnerability and migrate from <abbr title="Secure Hash Algorithm">SHA</abbr>-1 to
@@ -795,32 +751,21 @@ But cryptographic agility is not simple. Moreover, apart from implementing such
 agility in extensive, fast-changing infrastructure, the agility itself can be dangerous
 if not handled correctly.
 
-### 36
-
-37 (Wiesmaier, et al., 2021, S. 1)^
-38 (Mehrez & Omri, 2018, S. 1)^
-39 (Leurent & Peyrin, 2020, S. 4)^
-(Wang, Yin, & Yu, 2005)
-
-
-```
-CHAPTER: 5. WHAT COMPANIES NEED TO DO 22
-```
 In 2014 Secure Socket Layer (<abbr title="Secure Socket Layer">SSL</abbr>) 3.0 was found vulnerable to an attack that
 abused its configuration of ciphers, specifically its padding. Therefore <abbr title="Secure Socket Layer">SSL</abbr> 3.0 can
-be manipulated for man-in-the-middle attacks.^40 At the time, this led to its
+be manipulated for man-in-the-middle attacks.<sup>40</sup> At the time, this led to its
 deprecation and the recommendation of using only Transport Layer Security (<abbr title="Transport Layer Securit">TLS</abbr>)
-1.0 and above.^41
+1.0 and above.<sup>41</sup>
 
 The issue is that for legacy systems that required <abbr title="Secure Socket Layer">SSL</abbr> 3.0, many browsers and
 clients still offered <abbr title="Secure Socket Layer">SSL</abbr> 3.0. Using <abbr title="Padding Oracle On Downgraded Legacy Encryption">POODLE</abbr>, attackers would force a downgrade to
 <abbr title="Secure Socket Layer">SSL</abbr> 3.0 and then abuse the vulnerability. This attack can be mitigated by
 completely removing <abbr title="Secure Socket Layer">SSL</abbr> 3.0 or preventing Protocol fallback attacks using a
-Signaling Cipher Suite Value (<abbr title="Signaling Cipher Suite Value">SCSV</abbr>), which is available as an extension to <abbr title="Transport Layer Securit">TLS</abbr>.^42
+Signaling Cipher Suite Value (<abbr title="Signaling Cipher Suite Value">SCSV</abbr>), which is available as an extension to <abbr title="Transport Layer Securit">TLS</abbr>.<sup>42</sup>
 
 <abbr title="Secure Socket Layer">SSL</abbr> Pulse is a project that scans the top 150.000 websites and, as of September
-4 th, 2022 , still found that 5% did not enable the <abbr title="Signaling Cipher Suite Value">SCSV</abbr> extension and were
-vulnerable to a <abbr title="Padding Oracle On Downgraded Legacy Encryption">POODLE</abbr> attack.^43
+4th, 2022, still found that 5% did not enable the <abbr title="Signaling Cipher Suite Value">SCSV</abbr> extension and were
+vulnerable to a <abbr title="Padding Oracle On Downgraded Legacy Encryption">POODLE</abbr> attack.<sup>43</sup>
 
 This attack is not directly related to crypto agility but demonstrates the difficulty of
 securely configuring websites. But if Crypto agility is used, such misconfigurations
@@ -846,7 +791,8 @@ CHAPTER: 5. WHAT COMPANIES NEED TO DO 23
 ```
 Table 1 : Security Level now vs. PQC^44
 
-Cryptographic inventory
+<br>
+#### Cryptographic inventory
 
 For an organization to implement crypto agility, it first needs to identify all the
 cryptography used within the company. This includes its developed software and
@@ -868,7 +814,8 @@ After this painstaking task is done, the implementation of the actual agility ca
 ```
 CHAPTER: 5. WHAT COMPANIES NEED TO DO 24
 ```
-Cryptographic Agility
+<br>
+#### Cryptographic Agility
 
 All procured software must undergo an assessment. Vendor’s cryptography
 handling must become an important topic, and requirements should be set in place.
@@ -1314,8 +1261,7 @@ releases/2017/isaca-instructs-basic-cryptographic-adoption-in-four-phases
 
 <sup>29</sup>
 ISARA Corporation. (2022). blog-posts. Retrieved 10 19, 2022, from lattice-based-
-cryptography: https://www.isara.com/blog-posts/lattice-based-
-cryptography.html
+cryptography: https://www.isara.com/blog-posts/lattice-based-cryptography.html
 <br>
 
 <sup>38</sup>
