@@ -778,18 +778,8 @@ systems. Migrating from these will be difficult. Additionally, it’s hard to pr
 algorithms will become the new standard and whether they will change due to
 future vulnerabilities.
 
-### 40
-
-41 (Möller, Duong, & Kotowicz, 2014, S. 2)^
-42 (Barnes, Thomson, Pironti, & Langley, 2015)^
-43 (Moeller & Langley, 2015, S. 3)^
-(Qualys Inc., 2022)
-
-
-```
-CHAPTER: 5. WHAT COMPANIES NEED TO DO 23
-```
-Table 1 : Security Level now vs. PQC^44
+![Security Level now vs. PQC](/assets/img/crypto_article_images/security_level_post_qc.png){: w="500"}
+_Table 1: Security Level now vs. PQC<sup>44</sup>_
 
 <br>
 #### Cryptographic inventory
@@ -798,22 +788,13 @@ For an organization to implement crypto agility, it first needs to identify all 
 cryptography used within the company. This includes its developed software and
 what cryptography is used by software and hardware procured from vendors. This
 identification is a cryptography inventory and should be kept up to date whenever
-changes are made.^45
+changes are made.<sup>45</sup>
 Many automated tools can help achieve this inventory, from cryptographic discovery
 tools such as cryptosense analyzer to endpoint managers like Tanium. However, in
 the end, most of the discovery has to be manual because tools will always overlook
 some details or miss a proprietary algorithm it doesn’t recognize.
 After this painstaking task is done, the implementation of the actual agility can begin.
 
-### 44
-
-45 (Mehrez & Omri, 2018, S. 2)^
-(ISACA, 2018, S. 12)
-
-
-```
-CHAPTER: 5. WHAT COMPANIES NEED TO DO 24
-```
 <br>
 #### Cryptographic Agility
 
@@ -821,27 +802,19 @@ All procured software must undergo an assessment. Vendor’s cryptography
 handling must become an important topic, and requirements should be set in place.
 Only vendors that either use agile cryptography themselves or at least report their
 use of cryptography and any changes to it in the future should be allowed so the
-organization has information to act on if deemed necessary.^46
+organization has information to act on if deemed necessary.<sup>46</sup>
 
 For in-house developed applications, it’s a little easier. In general, the organization
 needs to abstract the cryptography from applications and create a one-stop shop
 <abbr title="Application Programming Interface">API</abbr> for all cryptographic operations. Figure 11 shows what such a solution might
 look like. While currently, every App Version holds cryptographic libraries that need
 to be updated with any significant change, using such an <abbr title="Application Programming Interface">API</abbr> would eliminate the
-need to worry about it. 47
+need to worry about it.<sup>47</sup>
 
-Figure 11 : Cryptographic Agility^48
-
-### 46
-
-47 (Computing Community Consortium, 2019, S. 22)^
-48 (Wiesmaier, et al., 2021, S. 12)^
-(Macaulay & Henderson, 2021, S. 8)
+![Security Level now vs. PQC](/assets/img/crypto_article_images/agile_crypto_lifecycle.png){: w="800"}
+_Figure 11: Cryptographic Agility<sup>48</sup>_
 
 
-```
-CHAPTER: 5. WHAT COMPANIES NEED TO DO 25
-```
 But how could such an <abbr title="Application Programming Interface">API</abbr> be developed?
 Thankfully, several frameworks already implement crypto agility and can easily be
 used to create such an <abbr title="Application Programming Interface">API</abbr>.
@@ -849,12 +822,11 @@ The main goal is to prevent hardcoding algorithm implementations, which would
 make changing algorithms difficult later. To prevent this, both .NET and Java
 Development Kit (<abbr title="Java Development Kit">JDK</abbr>) implement abstractions. Within these abstractions, a factory
 method allows developers to create their implementations by supplying the name
-from a configuration file or database.^49
+from a configuration file or database.<sup>49</sup>
 Now, whenever a change is needed, or a new algorithm should be used, the
 configuration file needs to be updated, the old algorithm removed, and the new one
 added.
-Some of the essential features crypto agility provides are:^50
-
+Some of the essential features crypto agility provides are<sup>50</sup>:
 1. Extensibility allows us to extend or reduce the current range of algorithms by
     any new ones.
 2. Backward Compatibility has to be supported not to shut down all legacy
@@ -875,28 +847,18 @@ important ones.
 
 Another option to achieve cryptographic agility, other than to develop own solutions,
 is to use cryptography as a service (CaaS). Usually, this is a provider of a
-
-### 49
-
-50 (Sullivan , 2010, S. 3)^
-(Mehrez & Omri, 2018, S. 4)
-
-
-```
-CHAPTER: 5. WHAT COMPANIES NEED TO DO 26
-```
 cryptographic <abbr title="Application Programming Interface">API</abbr>, which has several advantages to developing an in-house
 solution. One reason would be that the organization may not have the expertise to
 build a cryptographic <abbr title="Application Programming Interface">API</abbr> in-house. Additionally, it enables rapid scaling without the
 often expensive investments in the hardware infrastructure needed to host such a
 solution. Also, the maintenance and patching are left to the vendor, and often such
 solutions are cost-effective and can easily be used for cloud and on-prem
-applications.^51
+applications.<sup>51</sup>
 
 In addition to latency and transfer security, issues arise because the maintenance
 is in the hands of the vendor. Therefore, before deciding on a CaaS, the organization
 should ensure that the vendor intends to support <abbr title="Post Quantum Cryptography">PQC</abbr> algorithms and that the
-platform enables all the features needed to be agile.^52
+platform enables all the features needed to be agile.<sup>52</sup>
 
 One last important crypto agility topic is incorporating it into an incident response
 plan. Organizations should prepare for the worst-case scenario in which an
@@ -906,16 +868,9 @@ and other use cases.
 
 Cryptographic agility goes a long way to make migrating to <abbr title="Post Quantum Cryptography">PQC</abbr> easier, but more
 steps can and should be taken.
-
 It should be thoroughly assessed to prepare the infrastructure for the migration
 event. Several Frameworks designed for this exact situation will be presented in
 the following.
-
-### 51
-
-52 (Rahimi, Reed, & Gupta, 2018, S. 2)^
-(Rahimi, Reed, & Gupta, 2018, S. 12)
-
 
 
 ## 5.2.2 NIST CYBERSECURITY FRAMEWORK (CSF)
@@ -950,12 +905,6 @@ Lastly, a Profile is chosen to align requirements, risk tolerance, and organizat
 strategy to identify desired outcomes and activities to find potential gaps and needs
 for improvement.
 
-### 53
-
-```
-(NIST, 2018)
-```
-
 
 ## 5.2.3 QUANTUM RISK ASSESSMENT (QRA)
 
@@ -963,9 +912,9 @@ While the <abbr title="Cybersecurity Framework">CSF</abbr> framework is rather g
 identifies the risks specifically related to quantum computing and should be used as
 an additional tool to other frameworks.
 The framework is divided into 6 phases that, to some degree, overlap with the
-previous <abbr title="Cybersecurity Framework">CSF</abbr> framework but are more related to Cryptography^54 :
+previous <abbr title="Cybersecurity Framework">CSF</abbr> framework but are more related to Cryptography<sup>54</sup>:
 
-Phase 1: Identify and document
+**Phase 1: Identify and document**
 
 As with <abbr title="Cybersecurity Framework">CSF</abbr>, the first phase is identifying relevant assets and documenting how they
 are currently protected by cryptography. This is especially important for valuable
@@ -973,7 +922,7 @@ and sensitive assets and information. That automatically implies that the
 organization has evaluated the business value of various data and assets. It’s also
 essential to note the legal requirements to protect the identified assets.
 
-Phase 2: Research the state of quantum computers and <abbr title="Post Quantum Cryptography">PQC</abbr>
+**Phase 2: Research the state of quantum computers and <abbr title="Post Quantum Cryptography">PQC</abbr>**
 
 Understanding where the development of <abbr title="Post Quantum Cryptography">PQC</abbr> and Quantum computers stands is
 vital so the organization can put it in context and draw conclusions for its reactions.
@@ -981,26 +930,18 @@ This means continuously monitoring the most recent events in the fields and havi
 a dedicated team or contacting other organizations that can understand what is
 happening in the areas and their impact on organizations.
 
-Phase 3: Identify threat actors and estimate time to quantum computers access (“z”)
+**Phase 3: Identify threat actors and estimate time to quantum computers access (“$z$”)**
 
 So the organization can create a plan of action, it needs to know what the timeline
 looks like until its threat actors have access to quantum computers that could be
-used to break the currently used cryptography. The time “z” is a number that will
+used to break the currently used cryptography. The time “$z$” is a number that will
 later be needed to estimate the risk.
 Identifying the timeline is no easy task, as it requires a thorough understanding of
 the developments, but many resources offer such estimates, which can be
 aggregated and used. These frequently change with new developments and thus
 should be monitored continuously.
 
-54
-(Mosca & Mulholland, 2017)
-
-
-```
-CHAPTER: 5. WHAT COMPANIES NEED TO DO 29
-```
-Phase 4: Identify the **lifetime of assets “x”** and time to transform organization
-**“y”**
+**Phase 4: Identify the lifetime of assets “$x$” and time to transform organization “$y$”**
 
 If a company owns data set to be deleted in a few years, there is no reason to worry
 about quantum computers, as the data will be long gone by the time they come
@@ -1010,26 +951,25 @@ often lifetimes, and thus can already be harvested by malicious actors and
 decrypted as soon as the quantum technology can do so. So in these cases, x is a
 large number of perhaps several decades.
 Secondly, the organization will still be vulnerable if the transformation to <abbr title="Post Quantum Cryptography">PQC</abbr> occurs
-during this time. Therefore the time of transformation is estimated with the variable
-“y.” Small companies with an agile infrastructure will have a much shorter
+during this time. Therefore the time of migration is estimated with the variable
+“$y$”. Small companies with an agile infrastructure will have a much shorter
 transformation time than large companies with massive, old infrastructure.
 
-Phase 5: x + y > z? Determine quantum risk
+**Phase 5: $x + y > z$? Determine quantum risk**
 
 Now it’s time to see how dire the organization’s situation is. By comparing the sum
-of x and y with the value of z, a comparison is made between the time it takes for
-quantum technology to mature (“z”) and how long the transformation of the company
+of $x$ (lifetime) and $y$ (migration) with the value of $z$ (threat lifetime), a comparison is made between the time it takes for
+quantum technology to mature (“$z$”) and how long the transformation of the company
 will take, combined with the lifetime of its data. This essentially results in whether
 the organization’s assets will become vulnerable before it can start protecting them.
 An example of estimations can be seen in Table 2.
 
-Table 2 : X + Y > Z
+![X + Y > Z](/assets/img/crypto_article_images/lifetimeqra.png){: w="500"}
+_Table 2: X + Y > Z<sup>62</sup>_
 
 
-```
-CHAPTER: 5. WHAT COMPANIES NEED TO DO 30
-```
-Phase 6: Prioritize activities
+
+**Phase 6: Prioritize activities**
 
 The last thing a company has to do after the assessment is made is a migration plan
 on achieving the required security and what actions need to be taken. So again, a
@@ -1047,7 +987,7 @@ they combined both frameworks and made tweaks, which resulted in a framework
 that enables companies to make better decisions regarding crypto agility.
 The framework uses five steps:
 
-Step 1: Identify threats
+**Step 1: Identify threats**
 
 While other frameworks start with asset identification, this framework begins by
 identifying the relevant threats so the organization can later limit the asset pertinent
@@ -1055,7 +995,7 @@ to those impacted by a threat—for example, the threat by quantum computers to
 symmetric algorithms is much smaller than to asymmetric cryptography. And so,
 factors like regulations, technology, and vulnerabilities all change the threat level.
 
-Step 2: Asset inventory
+**Step 2: Asset inventory**
 In this step, the organizations must identify all assets impacted by a threat from step
 one and that use cryptography. The inventory must include secrets management
 and list the cryptography used. Priorizatinos should be made by sensitivity, location
@@ -1063,10 +1003,7 @@ and list the cryptography used. Priorizatinos should be made by sensitivity, loc
 prioritization of those assets.
 
 
-```
-CHAPTER: 5. WHAT COMPANIES NEED TO DO 31
-```
-Step 3: risk estimation
+**Step 3: risk estimation**
 For risk estimation, several models should be used. For one, the X + Y > Z model
 used by Moscas’ <abbr title="Quantum Risk Assessment">QRA</abbr> framework can be a helpful tool to estimate risk by timeline.
 Another technique is calculating the cost of mitigation, so a less agile asset will incur
@@ -1309,11 +1246,18 @@ SSL 3.0 Fallback. Google. Retrieved 11 09, 2022, from
 https://www.openssl.org/~bodo/ssl-poodle.pdf
 <br>
 
+<sup>62</sup>
+Mosca, M., & Mulholland, J. (2017). A Methodology for Quantum Risk Assessment.
+Global Risk Institute. Retrieved 17 04, 2023, from
+https://globalriskinstitute.org/download/quantum-threat-timeline-report-2021-full-report/
+<br>
+
 <sup>54</sup>
 Mosca, M., & Mulholland, J. (2017). A Methodology for Quantum Risk Assessment.
 Global Risk Institute. Retrieved 11 07, 2022, from
 https://globalriskinstitute.org/publications/3423-2/
 <br>
+
 
 <sup>30</sup>
 Nejatollahi, H., Dutt, N., Ray, S., Regazzoni, F., Banerjee, I., & Cammarota, R.
