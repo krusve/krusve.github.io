@@ -10,7 +10,7 @@ math: true
 
 ## Summary
 
-This thesis aims to present a picture of the current state of quantum computing
+This article is a summary of my Bachelor thesis and aims to present a picture of the current state of quantum computing
 and post-quantum cryptography. 
 The goal is to answer how quantum computers
 work to be able to understand why Shor’s algorithm is such a significant threat to
@@ -24,174 +24,6 @@ path on what steps are required to be prepared for the quantum future.
 
 <br>
 <br>
-
-
-<!-- ## TABLE OF CONTENTS
-
-
-[TABLE OF CONTENTS](#table-of-contents)
-
-[LIST OF TABLES](#list-of-tables)
-
-[TABLE OF FIGURES](#table-of-figures)
-
-[LIST OF ABBREVIATIONS AND ACRONYMS](#list-of-abbreviations-and-acronyms)
-
-[CHAPTER 1. INTRODUCTION](#chapter-1-introduction)
-
-- [1.1 PROBLEM STATEMENT](#11-problem-statement)
-
-- [1.2 GOAL](#list-of-abbreviations-and-acronyms)
-
-- [1.3 STRUCTURES](#list-of-abbreviations-and-acronyms)
-
-- [1.4 METHODOLOGY](#14-methodology)
-
-
-[CHAPTER 2. QUANTUM COMPUTING AND PQC INTRODUCTION](#chapter-2-quantum-computing-and-pqc-introduction)
-
-- [2.1 QUANTUM COMPUTING BASICS](#21-quantum-computing-basics)
-
-- [2.1.1 QUBITS](#211-qubits)
-
-- [2.1.2 POLARIZING EXPERIMENT](#212-polarizing-experiment)
-
-- [2.1.3 ENTANGLEMENT](#213-entanglement)
-
-- [2.1.4 GATES](#211-qubits)
-
-- [2.1.5 SPEED-UP](#215-speed-up)
-
-[CHAPTER 3. IMPACT OF QUANTUM COMPUTING ON CRYPTOGRAPHY](#chapter-3-impact-of-quantum-computing-on-cryptography)
-
-[CHAPTER 4 MITIGATION TECHNOLOGIES](#chapter-4-mitigation-technologies)
-
-- [4.1 POST QUANTUM CRYPTOGRAPHY (PQC)](#41-post-quantum-cryptography-pqc)
-
-  - [4.1.1 LATTICE-BASED CRYPTO](#411-lattice-based-crypto)
-
-  - [4.1.2 HASH-BASED CRYPTO](#412-hash-based-crypto)
-
-- [4.2 QUANTUM CRYPTOGRAPHY](#42-quantum-cryptography)
-
-  - [4.2.1 QUANTUM KEY DISTRIBUTION (QKD)](#421-quantum-key-distribution-qkd)
-
-- [4.3 PQC VS. QKD](#43-pqc-vs-qkd)
-
-[CHAPTER 5. WHAT COMPANIES NEED TO DO](#chapter-5-what-companies-need-to-do)
-
-- [5.1 IMPLEMENTING QUANTUM CRYPTOGRAPHY](#51-implementing-quantum-cryptography)
-
-- [5.2 IMPLEMENTING PQC](#52-implementing-pqc)
-
-  - [5.2.1 CRYPTOGRAPHIC AGILITY](#521-cryptographic-agility)
-
-  - [5.2.2 NIST CYBERSECURITY FRAMEWORK (CSF)](#522-nist-cybersecurity-framework-csf)
-
-  - [5.2.3 QUANTUM RISK ASSESSMENT (QRA)](#523-quantum-risk-assessment-qra)
-
-  - [5.2.4 CRYPTO AGILITY RISK ASSESSMENT FRAMEWORK (CARAF)](#524-crypto-agility-risk-assessment-framework-caraf)
-
-[CHAPTER 6. CONCLUSION](#chapter-6-conclusion)
-
-[CHAPTER 7. REFERENCES](#chapter-7-references)
-
-[CHAPTER: 8. SHOR ’ S ALGORITHM](#chapter-8-shor--s-algorithm)
-
-<br>
-<br> -->
-
-
-
-<!-- # LIST OF TABLES
-
-- Table 1: Security Level now vs. <abbr title="Post Quantum Cryptography">PQC</abbr> <br>
-- Table 2: X + Y > Z <br>
-- Table 3: Develop research statement <br>
-- Table 4: Define criteria for literary acquisition <br>
-- Table 5: Define information retrieval systems <br>
-- Table 6: Define search criteria <br>
-- Table 7: Search strategy <br>
-- Table 8: Evaluate potential literature <br>
-- Table 9: Evaluation of suitable literature <br>
-- Table 10: Incorporation of literature <br>
-<br>
-<br>
-
-
-# TABLE OF FIGURES
-
-- Figure 1: Two-dimensional qubit representation TABLE OF FIGURES
-- Figure 2: Experiment with one filter
-- Figure 3: Reorientation of photon
-- Figure 4: Absorbing photon
-- Figure 5: Experiment with two filters
-- Figure 6: Experiment with three filters
-- Figure 7: Shor’s algorithm time complexity
-- Figure 8: Lattice example
-- Figure 9: Shortest Integer Solution
-- Figure 10: Quantum Key Distribution (<abbr title="QKD Algorithm (Bennet and Brassard 1984)">BB84</abbr>)
-- Figure 11: Cryptographic Agility
-
-<br>
-<br>
-
-
-# LIST OF ABBREVIATIONS AND ACRONYMS
-
-
-<abbr title="Advanced Encryption Standard">AES</abbr> Advanced Encryption Standard
-
-<abbr title="Application Programming Interface">API</abbr> Application Programming Interface
-
-<abbr title="QKD Algorithm (Bennet and Brassard 1984)">BB84</abbr> QKD Algorithm (Bennet and Brassard 1984)
-
-<abbr title="Crypto Agility Assessment Framework">CARAF</abbr> Crypto Agility Assessment Framework
-
-<abbr title="Core Processing Unit">CPU</abbr> Core Processing Unit
-
-<abbr title="Cybersecurity Framework">CSF</abbr> Cybersecurity Framework
-
-<abbr title="Gigahertz">GHz</abbr> Gigahertz
-
-<abbr title="GNU Privacy Guard">GnuPG</abbr> GNU Privacy Guard
-
-<abbr title="Information Technology">IT</abbr> Informatin Technology
-
-<abbr title="Java Development Kit">JDK</abbr> Java Development Kit
-
-<abbr title="National Institute of Standards and Technology">NIST</abbr> National Institute of Standards and Technology
-
-<abbr title="NatioNal Security Agency">NSA</abbr> NatioNal Security Agency
-
-<abbr title="Pretty Good Privacy">PGP</abbr> Pretty Good Privacy
-
-<abbr title="Padding Oracle On Downgraded Legacy Encryption">POODLE</abbr> Padding Oracle On Downgraded Legacy Encryption
-
-<abbr title="Post Quantum Cryptography">PQC</abbr> Post Quantum Cryptography
-
-<abbr title="Quantum Cryptography">QC</abbr> Quantum Cryptography
-
-<abbr title="Quantum Key Distribution">QKD</abbr> Quantum Key Distribution
-
-<abbr title="Quantum Risk Assessment">QRA</abbr> Quantum Risk Assessment
-
-<abbr title="Rivest–Shamir–Adleman">RSA</abbr> Rivest–Shamir–Adleman
-
-<abbr title="Signaling Cipher Suite Value">SCSV</abbr> Signaling Cipher Suite Value
-
-<abbr title="Secure Hash Algorithm">SHA</abbr> Secure Hash Algorithm
-
-<abbr title="Shortest Integer Solution Problem">SIS</abbr> Shortest Integer Solution Problem
-
-<abbr title="Secure Socket Layer">SSL</abbr> Secure Socket Layer
-
-<abbr title="Transport Layer Securit">TLS</abbr> Transport Layer Security
-
-<abbr title="Winternitz one-time signature">WOTS</abbr> Winternitz one-time signature
-
-<br>
-<br> -->
 
 # CHAPTER 1. INTRODUCTION
 
@@ -227,12 +59,12 @@ future.
 
 ## 1.2 GOAL
 
-The goal of the thesis is to investigate the current status of quantum computing,
+The goal is to investigate the current status of quantum computing,
 more specifically, its impact on cryptography, with the help of recent research and
 literature.
 The aim is to clarify the threat <abbr title="Quantum Cryptography">QC</abbr> poses to cryptography, to understand the involved
 technologies, and to shed light on new developments in the field.
-Throughout the thesis, the following questions are addressed:
+Throughout, the following questions are addressed:
 
 - What is <abbr title="Quantum Cryptography">QC</abbr>, and how does it fundamentally work?
 - Where does the threat come from, and what solutions are developing?
@@ -241,42 +73,6 @@ Throughout the thesis, the following questions are addressed:
 In the end, actionable recommendations for securing infrastructure and how
 companies can begin the process are made.
 
-
-## 1.3 STRUCTURE
-
-The thesis consists of three parts main parts:
-For the later topics discussed in this thesis, it’s vital to understand the
-fundamental mechanisms used by quantum computers. Therefore the first part
-examines the current status of quantum computing. As it would go beyond the
-scope of this thesis, this examination will be high-level.
-
-The main threat posed by quantum computation is towards cryptography, as
-algorithms can factorize efficiently, thereby eliminating the basis of modern
-cryptography. Therefore, the second part of the thesis is a summary of recent
-literature which provides the latest developments needed to evaluate the threat
-of <abbr title="Quantum Cryptography">QC</abbr> and its impact on Cryptography.
-
-In the final part, based on the understanding from the preceding chapters,
-solutions and mitigation techniques for the quantum computing threat, such as
-Post Quantum Cryptography and Quantum Cryptography, are analyzed to
-develop recommendations for practical actions.
-
-
-
-## 1.4 METHODOLOGY
-
-Because this work aims to understand the field’s condition and discuss
-developments and future mitigation approaches, an overall theoretical approach is
-applied. Therefore Scientific papers and sources from authoritative institutions are
-used to analyze the topics.
-Though there are slightly different methodologies for the first and two last parts, due
-to the fundamental nature of the first chapter, textbooks and other reliable
-monographs are used to present the basic mechanisms behind quantum computing,
-which are well-established knowledge.
-
-For the last two parts, a range of sources is used to present the field’s current state
-from all critical perspectives and opinions. For this purpose, keywords and topics
-are defined, as well as criteria for accepting or rejecting sources.
 
 
 # CHAPTER 2. QUANTUM COMPUTING AND PQC INTRODUCTION
@@ -1009,13 +805,13 @@ used by Moscas’ <abbr title="Quantum Risk Assessment">QRA</abbr> framework can
 Another technique is calculating the cost of mitigation, so a less agile asset will incur
 a higher cost to becoming agile and thus be more vulnerable.
 
-Step 4: secure assets through risk mitigation
+**Step 4: secure assets through risk mitigation**
 Here organizations must decide whether the impacted asset should be secured by
 incurring the cost to upgrade it, accept the risk and leave the asset as-is, or
 terminate it, thereby eliminating the risk. This decision is based on the asset
 prioritization from step 2 and the risk estimation from step 3.
 
-Step 5: organizational roadmap
+**Step 5: organizational roadmap**
 Lastly, the organization needs to implement a plan to address these threats for
 various functions. Processes must be set in place to guide teams in managing their
 assets and address issues like vendor assessment, incident response, new security
@@ -1026,9 +822,7 @@ With these tools in hand, an organization should be well-equipped to address the
 upcoming challenge of quantum computers and position itself to be secure.
 
 
-```
-CHAPTER: 6. CONCLUSION 32
-```
+
 # CHAPTER 6. CONCLUSION
 
 This report has covered the basics of quantum computing to understand the main
@@ -1066,20 +860,69 @@ In the Goal definition, the following questions were set to be answered:
 - What actions mitigate the danger posed by <abbr title="Quantum Cryptography">QC</abbr>?
 
 
-```
-CHAPTER: 6. CONCLUSION 33
-```
+
 The thesis has shown how quantum computing works and impacts cryptography,
 how algorithms are threatened, and what mitigation methods and concrete steps
 organizations must take to be safe.
 
 Thereby all questions have been answered.
 
+# Addition: SHOR ’ S ALGORITHM
 
-```
-CHAPTER: 7. REFERENCES VII
-```
-# CHAPTER 7. REFERENCES
+Shor’s algorithm uses a combination of classical and quantum computing
+operations.
+The algorithm is applied when we have an $𝑁=𝑝∗𝑞$ (where p and q are large primes) and want to find $p$ and $q$ using $N$ only.
+The following is only a brief description of the maths and I recommend Young, P. (2019): "Using Period Finding to Factor an Integer." for a better explanation.
+
+
+To solve the factorization problem, Shor’s algorithm transforms the problem into a
+problem of period finding. Fortunately, it’s still impossible for classical computers to
+solve even with this technique. Still, as we will see, it allows a quantum computer to
+achieve exponential speed-up and solve the factorization. Therefore the solution
+relies on the period 𝑟 to the function:<sup>57</sup>
+
+$$ f(x) \equiv a^x \pmod{N} \;\;\;\;\;\; (8.1) $$
+
+The fundamental operations consist of 7 steps:
+
+
+**Step 1: Choose 𝒂**
+
+To begin the operations, we need some integer $𝑎$.
+We can choose some random $𝑎$ that is coprime to $N$ (no common factor).
+If $gcd(𝑎,𝑁)≠ 1$ , which is very unlikely. We have already found a solution.
+Usually, $gcd(𝑎,𝑁)= 1$ , and we can continue.<sup>58</sup>
+
+**Step 2: Find period 𝒓**
+
+We now have to solve $1 \equiv a^r \pmod{N}$ with a given $N$, chosen $𝑎$ and unknown $𝑟$.
+This is the part where quantum computing comes in.
+Without going into too much depth, Shor’s algorithm uses quantum phase estimation
+to create a superposition of all $𝑟$, and if we measure, we receive a state like the
+following: $φ=\frac{s}{r}$, where $𝑠$ is a random integer between $0$ and $𝑟 − 1$ and $r$ is the period.
+
+Extracting $r$ is easy enough.<sup>59</sup>
+
+Quantum phase estimation allows quantum computers to achieve exponential
+speed-up compared to classical algorithms because finding $𝑟$ would be challenging
+for classical algorithms.
+
+Before continuing, $r$ must be tested to make sure it’s even and $𝑎^\frac{r}{2} + 1 \;!\equiv 0 \pmod{p*q}$. Otherwise, it would be divisible by $N$.
+We know that $𝑎^𝑟 \bmod N = 1$ , which means that $(𝑎𝑟− 1 ) \bmod N = 0$.
+If $r$ is even, we then get:
+$$a^r - 1 = (a^\frac{r}{2} - 1)(a^\frac{r}{2} + 1) \;\;\;\;\;\; (8.2)$$
+
+This means that the <abbr title="Greatest Common Divisor">GCD</abbr>  of $N$ and one of the factors
+$(a^\frac{r}{2} - 1)$ and $(a^\frac{r}{2} + 1)$ are either $p$ or $q$.<sup>60</sup> <br><br>
+
+
+**Step 3: Find <abbr title="Greatest Common Divisor">GCD</abbr> $(a^\frac{r}{2} - 1, N)$ 𝐚𝐧𝐝 <abbr title="Greatest Common Divisor">GCD</abbr> $(a^\frac{r}{2} + 1, N)$**
+
+Finding the <abbr title="Greatest Common Divisor">GCD</abbr> can quickly be done using Euclid’s algorithm, and the results will be
+factors of $N$. Thus, we have the solution to the factoring problem.<br><br>
+
+
+# REFERENCES
 
 <sup>3, 5, 14, 15, 16, 17</sup>
 Abhijith J., A. A. (2022). Quantum Algorithm Implementations for Beginners. ACM
@@ -1117,15 +960,14 @@ doi:doi.org/10.6028/NIST.SP.800-131Ar2
 <sup>41</sup>
 Barnes, R., Thomson, M., Pironti, A., & Langley, A. (2015). Deprecating Secure
 Sockets Layer Version 3.0. Internet Engineering Task Force. Retrieved 11
-09, 2022, from https://datatracker.ietf.org/doc/html/rfc7568
+09, 2022, from https://datatracker.ietf.org/doc/html/rfc7568 
 <br>
 
 <sup>32, 33</sup>
 Bennett, C. H., & Brassard, G. (1984). QUANTUM CRYPTOGRAPHY: PUBLIC KEY
 DISTRIBUTION AND COIN TOSSING. International Conference on
 Computers, Systems & Signal Processing. 1 , pp. 175-179. Bangalore: IEEE.
-Retrieved 10 25, 202 2, from
-https://arxiv.org/ftp/arxiv/papers/2003/2003.06557.pdf
+Retrieved 10 25, 202 2, from https://arxiv.org/ftp/arxiv/papers/2003/2003.06557.pdf
 <br>
 
 Bernstein, D. J. (2009). Cost analysis of hash collisions: Will quantum computers
@@ -1298,6 +1140,7 @@ Press. Retrieved 10 12, 2022, from
 [http://mmrc.amss.cas.cn/tlb/201702/W020170224608150244118.pdf](http://mmrc.amss.cas.cn/tlb/201702/W020170224608150244118.pdf)
 <br>
 
+<sup>59</sup>
 Shor, P. W. (1997). Polynomial-Time Algorithms for Prime Factorization and
 Discrete Logarithms on a Quantum Computer. SIAM Journal on Computing,
 26 (5), 1484-1509. doi:doi.org/10.1137/S0097539795293172
@@ -1338,6 +1181,7 @@ Heinemann, A. (2021). On PQC Migration and Crypto-Agility. Retrieved 11
 09, 2022, from https://arxiv.org/ftp/arxiv/papers/2106/2106.09599.pdf
 <br>
 
+<sup>57, 58</sup>
 Young, P. (2019). Using Period Finding to Factor an Integer. Retrieved 11 15, 2022,
 from https://young.physics.ucsc.edu/150/period.pdf
 <br>
@@ -1347,89 +1191,8 @@ Nature, 299(5886), 802-803. doi:doi:10.1038/299802a0
 
 
 
-# CHAPTER: 8. SHOR ’ S ALGORITHM
-
-## 8. SHOR ’ S ALGORITHM
-
-Shor’s algorithm uses a combination of classical and quantum computing
-operations.
-The algorithm is applied when we have an 𝑁=𝑝∗𝑞 and want to find p and q.
-The fundamental operations consist of 7 steps:
-
-To solve the factorization problem, Shor’s algorithm transforms the problem into a
-problem of period finding. Fortunately, it’s still impossible for classical computers to
-solve even with this technique. Still, as we will see, it allows a quantum computer to
-achieve exponential speed-up and solve the factorization. Therefore the solution
-relies on the period 𝑟 to the function:^57
-𝑓(𝑥)= 𝑎𝑥 (𝑚𝑜𝑑 𝑁) (8.1)^
-
-Step 1: Choose 𝒂
-
-To begin the operations, we need some integer 𝑎.
-We can choose some random 𝑎 that is coprime to N (no common factor).
-If gcd(𝑎,𝑁)≠ 1 , which is very unlikely. We have already found a solution.
-Usually, gcd(𝑎,𝑁)= 1 , and we can continue.^58
-
-Step 2: Find period 𝒓
-
-We now have to solve 𝑎𝑟 (𝑚𝑜𝑑 𝑁) with a given N, chosen 𝑎 and unknown 𝑟.
-This is the part where quantum computing comes in.
-Without going into too much depth, Shor’s algorithm uses quantum phase estimation
-to create a superposition of all 𝑟, and if we measure, we receive a state like the
-
-following: φ=𝑠𝑟, where 𝑠 is a random integer between 0 and 𝑟− 1 and r is the period.
-
-Extracting r is easy enough.^59
-
-57
-58 (Young, 2019, S. 1)^
-59 (Young, 2019, S. 1)^
-(Shor, 1997, S. 18)
 
 
-Quantum phase estimation allows quantum computers to achieve exponential
-speed-up compared to classical algorithms because finding 𝑟 would be challenging
-for classical algorithms.
-
-Before continuing, r must be tested to make sure it’s even and 𝑎
-
-𝑟 2
-+ 1 !≡
-0 ( mod p q ). Otherwise, it would be divisible by N.
-We know that 𝑎𝑟 Mod N= 1 , which means that (𝑎𝑟− 1 ) mod N= 0.
-If r is even, we then get:
-
-```
-𝑎𝑟− 1 = (𝑎
-```
-```
-𝑟 2
-− 1 )(𝑎
-```
-𝑟 2
-+ 1 ) (8.2)^
-This means that the Greatest Common Divisor (gcd) of N and one of the factors
-
-(𝑎
-
-```
-𝑟 2
-− 1 )and (𝑎
-```
-```
-𝑟 2
-+ 1 ) are either p or q.^60
-```
-Step 3: Find 𝐠𝐜𝐝 (𝒂𝒓𝟐 − 𝟏,𝐍) 𝐚𝐧𝐝 𝐠𝐜𝐝 (𝒂𝒓𝟐 + 𝟏,𝑵)
-
-Finding the gcd can quickly be done using Euclid’s algorithm, and the results will be
-factors of N. Thus, we have the solution to the factoring problem.
-
-### 60
-
-```
-(Chuang & Nielsen, 2010, S. 633)
-```
 
 
 
