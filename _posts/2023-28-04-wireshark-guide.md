@@ -109,7 +109,7 @@ Look for the following:
 |  http.server | Server  |
 | data-text-lines contains "keyword" | Describes content (e.g. text/html or image/jpg)  |
 
-- See [Protocols - most used](posts/2023-29-04-protocols-most-used.md) for HTTP codes
+- See [Protocols - most used](https://krusve.com/posts/protocols-most-used/) for HTTP codes
 
 ## DNS
 
@@ -142,7 +142,7 @@ Look for the following:
 | ftp.request.command == "USER/PASS" | Find packets by used commands  |
 | ftp.request.arg == "password"  | Find packets with certain arguments  |
 
-- See [Protocols - most used](/posts/2023-29-04-protocols-most-used.md) for FTP codes
+- See [Protocols - most used](https://krusve.com/posts/2023-29-04-protocols-most-used.md) for FTP codes
 
 ## HTTPS
 
@@ -162,7 +162,7 @@ Look for the following:
 |   dhcp.option.domain_name contains "keyword" |  Filter by domain name           |
 
 
-- See [Protocols - most used](_posts/2023-29-04-protocols-most-used.md) for DHCP options
+- See [Protocols - most used](https://krusve.com/posts/2023-29-04-protocols-most-used.md) for DHCP options
 
 
 
