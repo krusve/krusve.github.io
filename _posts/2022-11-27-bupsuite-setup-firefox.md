@@ -1,7 +1,7 @@
 ---
 title: "Burpsuite setup with Firefox"
 date: 2022-11-27 19:27:00 +0100
-categories: [Tools, Burpsuite]
+categories: [Tools, Network]
 tags: [burpsuite, foxyproxy, kali linux, tools]     # TAG names should always be lowercase
 ---
 
